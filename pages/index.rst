@@ -7,7 +7,7 @@
 .. description: 
 .. type: text
 
-.. image:: /images/dr_vence.jpg
+.. image:: /files/dr_vence.jpg
     :align: right
     :width: 480
 

@@ -7,7 +7,7 @@
 .. description: 
 .. type: text
 
-.. figure:: /images/celegans.jpg
+.. figure:: /files/celegans.jpg
     :align: center
     :alt: Confocal microscope of the c elegans worm
 

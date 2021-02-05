@@ -10,7 +10,7 @@
 Motivation
 ----------
 
-.. figure:: /images/bragg.png
+.. figure:: /files/bragg.png
     :width: 400
     :align: right
     :alt: Comparing radiation-depth profiles: protons, x-rays, carbon
@@ -84,7 +84,7 @@ fewer patients will be denied treatment.
 The Scanner
 -----------
 
-.. figure:: /images/pct3.png
+.. figure:: /files/pct3.png
     :width: 400
     :align: right
     :alt: The proton Computed Tomography scanner.
@@ -94,7 +94,7 @@ The Scanner
     (Lower) A representative proton path traveling through the forward position detector,
     through a head-phantom, through the rear position detector, and into the energy detector.
 
-.. figure:: /images/callibration.png
+.. figure:: /files/callibration.png
     :width: 400
     :align: right
     :alt: Calibration phantom

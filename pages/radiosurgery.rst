@@ -10,7 +10,7 @@
 Motivation
 ----------
 
-.. figure:: /images/rat.png
+.. figure:: /files/rat.png
     :alt: Rat in anesthesia cradle.  Pressure sensor.
     :align: right
     :figwidth: 350

@@ -12,7 +12,7 @@
 Introduction
 ------------
 
-.. figure:: /images/3Dmesh.jpg
+.. figure:: /files/3Dmesh.jpg
     :alt: Different 3D mesh resolutions.
     :align: right
     :width: 450
@@ -72,7 +72,7 @@ a 3D simulation volume.
 MADness: a Multiresolution ADaptive mesh
 ----------------------------------------
 
-.. figure:: /images/madness1.png
+.. figure:: /files/madness1.png
     :alt: A multiresolution mesh
     :align: right
     :width: 300

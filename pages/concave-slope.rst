@@ -8,7 +8,7 @@
 .. type: text
 .. has_math: true
 
-.. figure:: /images/discrete-slope.png
+.. figure:: /files/discrete-slope.png
     :align: right
     :alt: The discrete slope represented by metal sheets resting on ping pong balls.
     :width: 600

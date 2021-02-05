@@ -45,7 +45,7 @@ board game `Here I Stand`_ (HIS). Each player of HIS has a special way to earn v
 For instance, the English player gets 5 Victory Points (VP) upon produicing a male heir.
 Since the first player to 25 VP wins, there is substantial incentive to secure the succession.
 
-.. image:: /images/HenryVIII.png
+.. image:: /files/HenryVIII.png
     :align: left
     :width: 150
     :target: https://en.wikipedia.org/wiki/Henry_VIII

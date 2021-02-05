@@ -16,7 +16,7 @@ For an easy-to-follow introduction to the science, follow the links.
 -------------------------
 
 
-.. image:: /images/ionization.jpg
+.. image:: /files/ionization.jpg
     :width: 200
     :align: left
     :alt: atomic ionization
@@ -48,7 +48,7 @@ the data and auto-generating LaTeX code for quick reporting.
 MADNESS_
 --------
 
-.. image:: /images/madness1.png
+.. image:: /files/madness1.png
     :width: 200
     :align: left
     :alt: Multiresolution mesh
@@ -63,7 +63,7 @@ Computing (HPC).
 
 `Concave slope`_
 ----------------
-.. image:: /images/discrete-slope.png
+.. image:: /files/discrete-slope.png
     :width: 200
     :align: left
     :alt: The slope of a hill 
@@ -78,7 +78,7 @@ the soil stability equation.
 `Cell-phase predictor`_
 -----------------------
 
-.. image:: /images/celegans.jpg
+.. image:: /files/celegans.jpg
     :width: 200
     :align: left
     :alt: worm stem cells
@@ -94,7 +94,7 @@ I improved the accuracy of our support vector machine from
 `Proton Computed Tomography`_
 -----------------------------
 
-.. image:: /images/pCT3.png
+.. image:: /files/pCT3.png
     :width: 200
     :align: left
     :alt: proton Computed Tomography scanner
@@ -121,7 +121,7 @@ using ROOT, a C++ framework developed at CERN.
 Radiosurgery_
 -------------
 
-.. image:: /images/rat.png
+.. image:: /files/rat.png
     :width: 200
     :align: left
     :alt: small animal CT-scan

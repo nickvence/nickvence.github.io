@@ -10,8 +10,7 @@
 .. class:: lead
 
 This page highlights the technology of my academic projects.
-For an introduction to the science, follow the links to learn
-more about the project details.
+For an easy-to-follow introduction to the science, follow the links.
 
 `Laser-atom interaction`_
 -------------------------
@@ -25,20 +24,19 @@ more about the project details.
 
 In graduate school I studied laser-atom interactions using
 High Performance Computing at Oak Ridge National Laboratory.
-MADNESS_, our C++ framework, used OpenMP threads
-and implemented an MPI-based task queue to maximize the
-performance of the cray XT6 (Jaguar) and XK7 (Titan).
+MADNESS_, our C++ framework, used a Futures-based task-queue
+that implemented both MPI and OpenMP to maximize the
+performance on large distributed-memory architectures.
 
-Because funding came from DOE supercomputer money, we were interested
-in how our project scaled; that is, how the performance increased
-as we increased the number of cores (processors).
+Department of Energy (DOE) funding prioritized an interest in how
+our performance scaled as we increased the number of cores (processors).
 
-Because our quantum mechanical needed a mathematical function
-whose approximation involved an alternating series,
-we relied on some numerical libraries: GNU Scientfic Library (GSL),
-and the GNU Multiple Precision Floating Point library (MPFR).
+On the applications side, we used an integral solution to the
+time-dependent Schrodinger wave equation.
+While we relied on the GNU Scientiific Library and Intel MKL for mathematical support,
+one particularly exotic special function required an alternating series approximation.
 Since subtration of similar sized terms is notorious for accumulating
-numerical error with finite-precision foating point numbers.
+numerical error, we implemented a custom 128-bit precision floating point implementation.
 
 Once we built the computation engine, we were able to run our
 experiment on the Cray supercomputers_.  This generated lots of data,
@@ -61,7 +59,19 @@ Environment for Scientific Simulation) is a collection of distributed
 computing technologies allowing career scientists to leverage High Performance
 Computing (HPC).
 
-[propagator convergence testing]
+--------
+
+`Concave slope`_
+----------------
+.. image:: /images/discrete-slope.png
+    :width: 200
+    :align: left
+    :alt: The slope of a hill 
+    :target: /concave-slope
+
+Used Mathematica to solve a 1D boundary value problem and
+demonstrate the validity of an integral approximation of 
+the soil stability equation.
 
 --------
 
@@ -91,23 +101,20 @@ I improved the accuracy of our support vector machine from
     :target: /proton-computed-tomography
 
 Proton Computed Tomography uses protons to create 3-dimensional
-images. This will be especially useful for doctors planning
+images; this will be especially useful for doctors planning
 proton radiation treatment for patients with head and neck tumors.
-I was in charge of several pieces of this large project, and
-assisted with others with their tasks.
 
-This radiation-intensive project involved a bit of robotics.
-We created a sub-millimeter precision positioning system (for
+Nuclear Instrumentation Modules (NIM) and an oscilloscope were
+indespensible in setting up the proton beam.
+
+Used Arduino-based robotics to automate repetative and radiation-intensive tasks.
+Created a sub-millimeter precision positioning system (for
 precision radiation delivery) with a collection of Newport
 stages controlled with python driver.
 
-The proton energy detector was comprised of five scintillating
-crystals in which the proton emited light as it slowed.
-I used ROOT, a C++ framework developed at CERN, to calibrate
-the energy detector.
+Callibrated the five-stage,scintillating proton energy detector
+using ROOT, a C++ framework developed at CERN.
 
-Nuclear Instrumentation Modules (NIM) and an oscilloscope were
-indespensible in setting up the proton beam to take data.
 
 ------------
 
@@ -125,9 +132,8 @@ catheter-based, cardiac arrhythmia surgery with a non-invasive
 proton beam procedure. This reserach project used a rat model
 to quantify radiation deposition in a living subject.
 
-Created a robotic rat-phantom for proton-beam target practice.
-I used an Arduino to control two servo motors modeling respiration
-and heartbeat.
+Created a robotic rat-phantom for proton-beam target practice
+using Arduino-control servo motors modeling respiration and heartbeat.
 
 Created an Arduino-controlled, mechanical-video interface to communicate rat
 breathing to gate CT-scanner.
@@ -138,6 +144,7 @@ linear transformation to determine and correct for systematic
 proton-beam error.
 
 .. _`Laser-atom interaction`: /laser-atom-interaction
+.. _`Concave slope`: /concave-slope
 .. _`Cell-phase predictor`: /predicting-cell-phase
 .. _`Proton computed tomography`: /proton-computed-tomography
 .. _MADNESS: /madness

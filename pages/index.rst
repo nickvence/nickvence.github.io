@@ -11,25 +11,40 @@
     :align: right
     :width: 480
 
-I am a computational scientist whose been steeped in research.
-I earned my PhD in computational atomic physics at the `University of Tennessee`_
-and the `Joint Institute of Computational Sciences`_ at located at `Oak Ridge National Laboratories`_.
-My first post-doctoral research project was at `University of California Irvine`_
-where I used using machine learning to identify stem cell phase using DNA morphology.
-Later at `Loma Linda University`_ I joined a translational research team
+I am a computational scientist who has been steeped in research.
+However, being unsatisfied with the vagaries of grant-based funding,
+I'm transitioning my career towards buisness intelligence, data science, applied statistics, etc.
+
+--------
+Research
+--------
+I earned my PhD in computational atomic physics from the `University of Tennessee`_
+running quantum mechanical simulations on what was temporarily one of the world's
+largest computers at the `Joint Institute of Computational Sciences`_ located at
+`Oak Ridge National Laboratories`_.  During my first postdoc at `University of California Irvine`_,
+I used using machine learning to identify the phases of stem cells using the shape of their DNA.
+During my second postdoc at `Loma Linda University`_, I joined a translational research team
 creating a proton radiation to improve medical imaging (creating a proton computed
 tomography scanner) and pioneering radiosurgery using small animals models.
-Afterwords, I joined a prosective dietary cohort (N=96,000) as a Data Analyst.
-Having experiencing the vagaries of grant-funded research, I transitioned to education
-where I enjoyed a new set of challenges.
+Later I joined a prosective dietary cohort (N=96,000) as a Data Analyst.
+
+I enjoyed each of the projects. They were inspiring and I learned much from each group.
+However, I began to realize a troubling trend (structural flaw) in the economics of 
+grant-funded research: funding growth does not match the growth of new researchers -- 
+newly-minted PhDs like myself.
+
+This imbalance means many groups run into funding snag where unexpected budget cuts 
+or the inability to secure additional grants means personel can no longer be supported.
+Having identified the problem, I've decided to be part of the solution and remove myself
+from the funding race.
+
 
 ---------------------
 Why a statistics blog
 ---------------------
-I got taught myself a lot of math during my BA in math and PhD in physics.
+During my math undergrad and PhD in physics, I got taught myself a lot of math.
 However, I managed to avoid completing a formal statistics course.
-It has been my experience that `Richard Feynman`_ [#]_ was correct when
-he said that teaching is the best way to learn something.
+`Richard Feynman`_ [#]_ said that teaching is the best way to learn something.
 So in this blog, I'll be writing about interesting applications of probability and statistics.
 
 .. _University of Tennessee: https://www.phys.utk.edu/

@@ -45,6 +45,6 @@ My `Physical Review A`_ publication was a proof of concept which accomplished th
 .. youtube:: Az780-HFWys
 
 .. _thesis: https://www.amazon.com/Laser-atom-interactions-multiresolution-Nicholas-Vence/dp/3639713575
-.. _MADNESS: /madness
+.. _MADNESS: /madness.html
 .. _`Oak Ridge National Laboratory`: https://www.ornl.gov/
 .. _`Physical Review A`: /files/Vence01PRA.pdf

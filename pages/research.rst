@@ -143,10 +143,10 @@ proton-sensitive film, Matlab image processing algorithm, and
 linear transformation to determine and correct for systematic
 proton-beam error.
 
-.. _`Laser-atom interaction`: /laser-atom-interaction
-.. _`Concave slope`: /concave-slope
-.. _`Cell-phase predictor`: /predicting-cell-phase
-.. _`Proton computed tomography`: /proton-computed-tomography
-.. _MADNESS: /madness
-.. _Radiosurgery: /radiosurgery
+.. _`Laser-atom interaction`: /laser-atom-interaction.html
+.. _`Concave slope`: /concave-slope.html
+.. _`Cell-phase predictor`: /predicting-cell-phase.html
+.. _`Proton computed tomography`: /proton-computed-tomography.html
+.. _MADNESS: /madness.html
+.. _Radiosurgery: /radiosurgery.html
 .. _supercomputers: https://www.top500.org

@@ -140,9 +140,9 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ("/posts", "Blog"),
-        ("/research", "Research"),
-        ("/categories/", "Tags"),
+        ("/posts/index.html", "Blog"),
+        ("/research.html", "Research"),
+        ("/categories/index.html", "Tags"),
     ),
 }
 
@@ -1055,7 +1055,7 @@ STRIP_INDEXES = True
 # This can be disabled on a per-page/post basis by adding
 #    .. pretty_url: False
 # to the metadata.
-PRETTY_URLS = True
+PRETTY_URLS = False
 
 # If True, publish future dated posts right away instead of scheduling them.
 # Defaults to False.

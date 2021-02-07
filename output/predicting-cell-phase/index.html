@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Predicting Cell Phase | Applied Stats</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://example.com/predicting-cell-phase/">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicholas Vence">
+<meta property="og:site_name" content="Applied Stats">
+<meta property="og:title" content="Predicting Cell Phase">
+<meta property="og:url" content="https://example.com/predicting-cell-phase/">
+<meta property="og:description" content="The end of a  c elegans worm as seen by confocal microscope.
+The DNA of these stem cells has been stained red, and its
+shape can be used to predict the cell phase.
+The large green blob on the left is ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-01-04T17:09:34-05:00">
+<meta property="article:tag" content="Biology">
+<meta property="article:tag" content="Database">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Matlab">
+<meta property="article:tag" content="Science">
+<meta property="article:tag" content="Support Vector Machine">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../posts" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="../research" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="../categories/" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.rst" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Predicting Cell Phase</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="figure align-center">
+<img alt="Confocal microscope of the c elegans worm" src="../files/celegans.jpg"><p class="caption">The end of a  <em>c elegans</em> worm as seen by confocal microscope.
+The DNA of these stem cells has been stained red, and its
+shape can be used to predict the cell phase.
+The large green blob on the left is called the distal tip cell, which
+generates the stem cells that flow down the worm differentiating into
+their various roles.</p>
+</div>
+<p>Stem cells are interesting because they can divide and specialize.
+Control of stem cell development holds the promise of engineering new organs.
+While the use of human stem cells in research is fraught with ethical complications,
+<a class="reference external" href="https://en.wikipedia.org/wiki/Caenorhabditis_elegans">c elegans</a> worms are a small, translucent and have a short life span
+which is why they are an ideal model for studing stem cells.
+Confocal microscopes (along with DNA staining technology) enables the
+creation of 3D images of stem cell DNA of these small worms.</p>
+<p>An animal cell cycles through four stages of development: Growth (G1),
+Synthesize new DNA (S), more growth (G2), and spliting or mitosis (M).
+Staining applies a compound which bonds a fluorecent molecule to a desired target.
+It is possible to determine which cells are in a certain phase by
+staining them; however, trying to stain for multiple cell phases causes complications.
+<strong>The goal</strong>: use the shape of the DNA to classify the cell's phase.</p>
+<p>The procedure:</p>
+<ul class="simple">
+<li><p>Stain cell DNA <em>and</em> one phase.</p></li>
+<li><p>Image worms in confocal microscope.</p></li>
+<li><p>Segment the image into individual cells.</p></li>
+<li><p>Run a variety of image processing filter on microscopy images to create a feature vector.</p></li>
+<li><p>Partition data into training set and validation set.</p></li>
+<li><p>Train support vector machine on training data.</p></li>
+<li><p>Determine accuracy on validation data.</p></li>
+</ul>
+<p>I inhereted the above algorithm from a previous grad student who took a job in industry.
+This project was a case study in poor programming practices:</p>
+<ul class="simple">
+<li><p>No code documentation</p></li>
+<li><p>Poor code-indentation</p></li>
+<li><p>Rampant redundancy</p></li>
+<li><p>Fragile code</p></li>
+<li><p>Poor choice of languages: using Matlab to manage an image database.</p></li>
+<li><p>Database key uniqueness issues</p></li>
+</ul>
+<p>After some time with the project, I made some improvements:</p>
+<ul class="simple">
+<li><p>Created code repository</p></li>
+<li><p>Improved directory structure</p></li>
+<li><p>Factor code to reduce redundancy</p></li>
+<li><p>Reindex data to accomodate project growth</p></li>
+<li><p>Write README document for future users</p></li>
+<li><p>Improved prediction accuracy from 85% to 90%</p></li>
+</ul>
+</div>
+    </div>
+    
+
+</article><!--End of body content--><footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

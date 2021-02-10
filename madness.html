@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MADNESS | Applied Stats</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://example.com/madness.html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicholas Vence">
+<meta property="og:site_name" content="Applied Stats">
+<meta property="og:title" content="MADNESS">
+<meta property="og:url" content="https://example.com/madness.html">
+<meta property="og:description" content="Introduction
+
+
+Fig. 1 A finite element grid of a three dimensional problem domain for
+slightly different resolutions have a vastly different number of elements.
+
+Partial Differential Equations (PDE) a">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-01-15T16:30:56-05:00">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href=".">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="posts/index.html" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="madness.rst" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">MADNESS</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="section" id="introduction">
+<h3>Introduction</h3>
+<div class="figure align-right" style="width: 450px">
+<img alt="Different 3D mesh resolutions." src="files/3Dmesh.jpg" style="width: 450px;"><p class="caption"><strong>Fig. 1</strong> A finite element grid of a three dimensional problem domain for
+slightly different resolutions have a vastly different number of elements.</p>
+</div>
+<p>Partial Differential Equations (PDE) are used to approximate solutions to a variety of
+real world problems.
+MADNESS (Multiresolution ADaptive Numerical Environment for Scientific Simulation) is
+a framework written in C++ for solving differential (and integral) equations efficiently
+on High Performance Compouters (HPC).</p>
+<p>A fist step to learning MADNESS, is understanding the most popular model for solving PDSs.
+The <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_element_method">finite element method</a> scheme discretizes space (divide it into boxes) and then
+creates functions and opperators to approximate the solution on the mesh (the discretized space).
+While this popular approach works for a wide variety of problems, it breaks down for
+high-dimension problems that requres resoltion in multiple length-scales.</p>
+<table class="float-left">
+<caption>Memory as a function of <span class="math">\(N_{size}\)</span>.</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr>
+<td><p>\[N_{side}\]</p></td>
+<td><p>Memory</p></td>
+</tr>
+<tr>
+<td><p>4</p></td>
+<td><p>64</p></td>
+</tr>
+<tr>
+<td><p>6</p></td>
+<td><p>216</p></td>
+</tr>
+<tr>
+<td><p>8</p></td>
+<td><p>512</p></td>
+</tr>
+<tr>
+<td><p>10</p></td>
+<td><p>1000</p></td>
+</tr>
+</tbody>
+</table>
+<p>As a practical example, suppose you are interested in modeling
+three dimensional water waves on finite element grid.
+Now suppose you need to include the interaction of the large ocean waves with the small waves
+of an outboard motor; this is a problem with multiple length scales.
+Large waves requires a large simulation volume.
+Small waves requires a high resolution of the mesh; this requires many points and consumes lots of memory.
+This algorithm will also scale poorly when you need to increase the resolution:
+increase <span class="math">\(N_{size}\)</span>, for</p>
+<p>\[\text{Memory size} = O(N_{side}^3). \]</p>
+<p>A high-resolution problem that spans multiple length-scales is the
+Achilles' heel of the finite element method. For performance, engineers choose a
+model with the fewest number of dimensions that will completely capture phenomena
+of interest. For instance, when modeling the effects of a linearly-polarized
+laser on a cylindrically symmetric system, a 2D simulation will capture all detail.
+However, an elliptically-polarized laser breaks the cylindrical symmetry requiring
+a 3D simulation volume.</p>
+</div>
+<div class="section" id="madness-a-multiresolution-adaptive-mesh">
+<h3>MADness: a Multiresolution ADaptive mesh</h3>
+<div class="figure align-right" style="width: 350px">
+<img alt="A multiresolution mesh" src="files/madness1.png" style="width: 300px;"><p class="caption"><strong>Fig. 2</strong> A multiresolution mesh has more than one size box in the grid.
+An adaptive grid places extra grid points just where they are needed.</p>
+</div>
+<p>One way of solving the issue of multiple length-scales on a high-dimentional
+domain is to introduce a Multiresolution (variable-size) mesh
+shown in Fig. 2.  Multiresolution is the M in the MADNESS acronym.</p>
+<p>Grid point placement is challenge on a multiresolution grid is a challenge.
+Will small ripples stay in one place or will they
+move over time?  To solve this issue, MADNESS uses an ADaptive (mADness) mesh:
+one that changes to meet the needs of the function being modeled. If you're
+interested in the mathematical details of adaptive refinement, see Section 2.1
+of our <a class="reference external" href="https://amath.colorado.edu/faculty/beylkin/papers/H-B-B-C-F-F-G-etc-2016.pdf">SIAM Publication</a>.</p>
+</div>
+<div class="section" id="madness-a-numerical-environment-for-scientific-simulation">
+<h3>madNESS: a Numerical Environment for Scientific Simulation</h3>
+<p>This numerical environment for scientific simulation (madNESS) consists of the following
+features:</p>
+<ul class="simple">
+<li><p>The illusion of "basis-free" computing.</p></li>
+<li><p>A library of fast, arbitrarily-accurate math functions and operators.</p></li>
+<li><p>A parallel runtime environment engineered for load balancing hundreds of thousands of cores.</p></li>
+<li><p>An API for representing function and operators optimized for scaling to large
+numbers of processors.</p></li>
+</ul>
+<div class="sidebar">
+<p class="sidebar-title">Case Study: poorly-designed software</p>
+<p>In the early days, much was learned about engineering HPC applications by trial and error.
+For instance, given a cluster of 64 CPUs one might write a 3D finite element algorithm
+that allocated 1 CPU for each element of a 4x4x4 grid (see Fig. 1).
+This is a poor design-choice because it links in the computational architecture to the
+problem and would make it difficult to scale to larger number of processors.
+Hard-coding the computational architecture into the code, is one such example.</p>
+<p>Such poorly engineered software prevents users from taking advantage of future
+computing power -- continued computational growth of <a class="reference external" href="https://en.wikipedia.org/wiki/Moore's_law">Moore's Law</a>.
+This usually the result of professionals working outside of their area of expertice.
+For instance in rival computational frameworks, the programmer often has to work
+with computational objects that do not map onto the physical quantity.
+This forces the programer to think in computational
+(rather than physical) abstractions.  MADNESS hides computational detail from its
+function objects so the programmer can write code that directly maps to the
+physical equation of interest.</p>
+</div>
+<div class="section" id="basis-free-computing">
+<h4>"Basis-free" computing</h4>
+<p>Many chemical systems are efficiently modeled using a molecular orbit basis.
+Since these basis functions refelcts the symmetry of the system, processes near the ground state
+are accurately described with only a few functions; this is referred to as a sparce basis it
+is seen as a good thing.</p>
+<p>Conversely, a poorly-choosen basis, will need lots of basis functions to describe the same process.
+However, as one is interested in more energetic processes, the standard basis ceases to be sparce;
+that is many many functions are required for the answer to converge. Brute-force, finite element schemes
+are considered dense (computationally expensive), for each box is basis function and there are many boxes.</p>
+<p>MADNESS aims at acheiving the best of both worlds. Like the finite element scheme it avoids
+systematic basis set error, but with much fewer basis functions.</p>
+</div>
+<div class="section" id="hpc-api">
+<h4>HPC API</h4>
+<p>MADNESS provides fast, accurate functions for solving differential equations in
+one to six dimensions. These operations include linear algebra, numerical
+differentiation and integration and integral convolution.</p>
+</div>
+<div class="section" id="load-balancing">
+<h4>Load-balancing</h4>
+<p>There are physical limits on processor <em>speed</em>; for this reason, HPC is synonomous with distributed computing.
+Today, the fastest computers have the most processors.
+Computers with thousands of available processors are no longer rare at universities and governemnt labs.
+However, writing efficient code to use of these computers is a challenge.</p>
+<p>An important test for HPC software is the <strong>scaling test</strong>: benchmarking
+code speed as a function of the number of processors on which it is run.
+Writing code that scales linearly is the holy grail in HPC; it means the software
+uses more processors perfectly efficiently.
+Typically, more processors bring more speed, but at some point the law of diminishing
+returns takes over.</p>
+<p>MADNESS's team engingeered a task-queue to hide interprocessor communication latency.
+To learn more about the task queue read Section 4 of the <a class="reference external" href="https://amath.colorado.edu/faculty/beylkin/papers/H-B-B-C-F-F-G-etc-2016.pdf">SIAM publication</a>.</p>
+</div>
+<div class="section" id="hpc-libraries">
+<h4>HPC Libraries</h4>
+<p>Creating code that can take advantage of modern supercomputers can be a career.
+Unfortunately, most scientists already have a career, and can't afford to put it
+on hold while learning the hoops of distributed computing.
+In the spirit of standing on the shoulders of giants, here is a list of
+of technologies that MADNESS uses to allowing average programmers to "see further."</p>
+<ul class="simple">
+<li><p><strong>Global Arrays</strong> an API for shared memory programming on distributed memory computers.</p></li>
+<li><p><strong>MPI</strong> Message Passing Interface for distributed-memory parallel programming.</p></li>
+<li><p><strong>OpenMP</strong> an interface to shared-memory parallel programming.</p></li>
+<li><p><strong>Pthreads</strong> an thread execution model governing non-concurrent bundles of computation.</p></li>
+<li><p><strong>Futures</strong> a C++ standard providing synchronization across threads.</p></li>
+</ul>
+</div>
+<div class="section" id="references">
+<h4>References</h4>
+<p>The <a class="reference external" href="https://amath.colorado.edu/faculty/beylkin/papers/H-B-B-C-F-F-G-etc-2016.pdf">SIAM publication</a> is a scholarly introduction to the mathematics of MADNESS
+that describes the distributed computing technologies it relies on and reviews some scientific applications.</p>
+<p>My <a class="reference external" href="files/Vence01PRA.pdf">Physics Review A publication</a> introduces MADNESS to the atomic physics community.</p>
+<p>Here is a brisk, 15-minute overview of MADNESS from its founder Robert Harrison.</p>
+<div class="youtube-video">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dBwWjmf5Tic?rel=0&amp;wmode=transparent" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+    </div>
+    
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script><script>
+                renderMathInElement(document.body,
+                    {
+                        
+delimiters: [
+    {left: "$$", right: "$$", display: true},
+    {left: "\\[", right: "\\]", display: true},
+    {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+    {left: "$", right: "$", display: false},
+    {left: "\\(", right: "\\)", display: false}
+]
+
+                    }
+                );
+            </script></article><!--End of body content--><footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

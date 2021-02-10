@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="bar1.R">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bar1.R | Applied Stats</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://example.com/listings/bar1.R.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../posts/index.html" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="../categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="bar1.R" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href=".">listings</a></li>
+                <li class="breadcrumb-item active">bar1.R</li>
+</ul></nav><h1>bar1.R
+        <small><a href="bar1.R">(Source)</a></small>
+    </h1>
+    <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-1"></a> 
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-2"></a>  
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-3"></a><span class="c1">#Color info:   display.brewer.all()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-4"></a><span class="c1">## Line Plot: take2</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-5"></a><span class="nf">ggplot</span><span class="p">(</span><span class="n">d20c</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">month</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">deaths</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">cause</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">cause</span><span class="p">))</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-6"></a>  <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-7"></a>  <span class="nf">facet_grid</span><span class="p">(</span><span class="n">year</span> <span class="o">~</span> <span class="n">.</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-8"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">caption</span> <span class="o">=</span> <span class="s">"data.cdc.gov/NCHS/Weekly-Counts-of-Death-by-State-and-Select-Causes/muzy-jte6"</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-9"></a>       <span class="n">title</span> <span class="o">=</span> <span class="s">"Deaths vs Time"</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-10"></a>  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">90</span><span class="p">),</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-11"></a>        <span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-12"></a>  <span class="nf">ggsave</span><span class="p">(</span><span class="s">"/Users/nvence/prog/COVID-19/data_CDC/line_chart.png"</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-13"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-14"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-15"></a><span class="n">prob</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.333</span><span class="p">,</span> <span class="m">0.361</span><span class="p">,</span> <span class="m">0.181</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-16"></a><span class="nf">cumsum</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-17"></a><span class="n">eps</span> <span class="o">=</span> <span class="m">0.001</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-18"></a><span class="nf">curve</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="m">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)),</span> <span class="n">eps</span><span class="p">,</span> <span class="m">1</span><span class="o">-</span><span class="n">eps</span><span class="p">,</span> <span class="m">500</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-19"></a><span class="nf">curve</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="m">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">),</span> <span class="n">eps</span><span class="p">,</span> <span class="m">1</span><span class="o">-</span><span class="n">eps</span><span class="p">,</span> <span class="m">500</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-20"></a><span class="n">box</span> <span class="o">=</span> <span class="m">3</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsbar1r-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a name="listingsbar1r-21"></a><span class="nf">curve</span><span class="p">(</span><span class="nf">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">),</span> <span class="o">-</span><span class="n">box</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="m">100</span><span class="p">)</span>
+</code></td>
+</tr>
+</table></div>
+
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

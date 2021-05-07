@@ -11,14 +11,15 @@
 Let's put reST through the paces -- to see how the features work.
 I want to do the following:
 
-* **bold**, *italic*
+* **bold**, *italic*, ~~strikethrough~~ (not yet)
 * Use math:  :math:`E=mc^2`
 * Use hyperlink: `CDC`_.
 * Use cross-refference Research_
 * Insert picture
+* Insert code from file
+* Use directives
 
-
-Monthly COVID are compared to previous year's mortality;
+Monthly COVID deaths are compared to previous year's mortality;
 the `CDC`_ data was taken mid-November, 2020.
 
 .. image:: /files/bar_chart.png
@@ -31,7 +32,7 @@ the `CDC`_ data was taken mid-November, 2020.
     *can not have* the left-most :code:`/` in the path
 
 .. note:: reST's **include** directive allows us to include a file.
-	However, first make a symbolic link :code:`ln -s path/to/source.R`.
+	However, a link :code:`ln path/to/source.R` removes redundancy.
 
 .. _CDC: http://data.cdc.gov/NCHS/Weekly-Counts-of-Death-by-State-and-Select-Causes/muzy-jte6
 .. _Research: /research.html

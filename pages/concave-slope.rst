@@ -10,31 +10,40 @@
 
 .. figure:: /files/discrete-slope.png
     :align: right
-    :alt: The discrete slope represented by metal sheets resting on ping pong balls.
-    :width: 600
+    :alt: Finite slope approximation
+    :figwidth: 400
+    :width: 400
 
     **Fig. 1** The representation of a discrete slope as modeled by metal sheets 
     resting on ping pong balls.
 
-One problem landscape developers (civil engineers) face is the need to have a hill
+Landscape developers (civil engineers) often need a hill
 decline in elevation as rapidly as possible. While the construction of a retaining
-wall is a last resort, an aesthetically-pleasing hillside is more desireable. 
+wall is an expensive last resort, most prefer an inexpensive, aesthetically-pleasing hillside.
 
-Before the growth of precision guidance system, the standard procedure was the creation of 
-a linear slope.  Unfotunately, a linear slope is not
+Before Global Positioning Systems (GPS) spawned precision-tractors, engineers created
+constant-slope hillsides.  Unfotunately, this linear slope is not
 
 - optimized for a rapid elevation decline
 - optimized for errosion, and 
 - aesthetically pleasing.
 
-The growth of precision autoguidance construction equipment allows for the creation
-of slopes with a concave cross-section. Sokolovski described the optimal form of
-these slopes as the solution to boundary value problems in the 1960s.
-However, Isaac Jeldes, created an approximation to Sokolovski's boundary value problem
-that was a simple integral.  He tested his approximation's integrity with a finite 
-element analysis scheme, and then asked me to help him justify approximation theoretically.
-Read the paper for the full scoop, but if you're pressed for time, approximating
-\\[tan(x) \\approx x\\]
+Now that GPS-tractors can make concave slopes, the world will benefit from optimizing
+their shape.
+
+In the 1960s, Sokolovskii described the optimal form of these slopes as the solution
+to boundary value problems.
+However, `Isaac Jeldes`_, approximated Sokolovski's boundary value problem with a
+simple integral.  He tested his approximation's integrity with a finite 
+element analysis scheme, and asked me to help him justify approximation theoretically.
+Read the paper for the full scoop, but if you're pressed for time, we approximated tangent with
+the first term of its Taylor expansion
+\\[tan(x) \\approx x.\\]
+This is justified for small angles and transforms the differential equation into one
+with an integral solution.
+This is a big win, for only a small subset of graduate-level engineers solve
+non-trivial differential equations; while calculus is a more commonly-used tool
+in the enigineers toolbox.
 
 Publication
 -----------
@@ -42,5 +51,5 @@ Publication
 `Approximate Solution to the Sokolovskiıĭ Concave Slope at Limiting Equilibrium`_
 
 .. _`Approximate Solution to the Sokolovskiıĭ Concave Slope at Limiting Equilibrium`: /files/Vence02IJG.pdf
-
+.. _`Isaac Jeldes`: https://www.linkedin.com/in/isaac-a-jeldes-halty-ph-d-p-e-55354352/
 

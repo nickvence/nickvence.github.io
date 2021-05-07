@@ -11,55 +11,57 @@
     :align: center
     :alt: Confocal microscope of the c elegans worm
 
-    The end of a  *c elegans* worm as seen by confocal microscope.
-    The DNA of these stem cells has been stained red, and its
-    shape can be used to predict the cell phase.
-    The large green blob on the left is called the distal tip cell, which
+    **Fig. 1** The end of a  *c elegans* worm as seen by confocal microscope.
+    The stem cells have been stained red. Different reagents bind and highlight
+    the DNA shape can which can be used to predict the cell phase.
+    The large green blob on the left is the distal tip cell, which
     generates the stem cells that flow down the worm differentiating into
     their various roles. 
 
 Stem cells are interesting because they can divide and specialize.
 Control of stem cell development holds the promise of engineering new organs.
 While the use of human stem cells in research is fraught with ethical complications,
-`c elegans`_ worms are a small, translucent and have a short life span
-which is why they are an ideal model for studing stem cells.
-Confocal microscopes (along with DNA staining technology) enables the
-creation of 3D images of stem cell DNA of these small worms.
+*`c elegans`_* worms are small, translucent and have a short life span
+making them ideal for studing stem cells.
+Confocal microscopes and DNA staining lets us create 3D images of their stem cell DNA
+similar to that in Fig. 1. 
 
 An animal cell cycles through four stages of development: Growth (G1),
 Synthesize new DNA (S), more growth (G2), and spliting or mitosis (M). 
-Staining applies a compound which bonds a fluorecent molecule to a desired target.
+Staining applies a reagent doped with a fluorecent molecule that binds to a desired target.
 It is possible to determine which cells are in a certain phase by
-staining them; however, trying to stain for multiple cell phases causes complications.
-**The goal**: use the shape of the DNA to classify the cell's phase.
+staining them with a correponding reagent; unfotunately, using multiple stains
+causes complications.
+
+**The goal of this project** is to use the DNA shape to classify the cell's phase.
 
 The procedure:
 
 - Stain cell DNA *and* one phase.
-- Image worms in confocal microscope.
+- Image worms in `confocal microscope`.
 - Segment the image into individual cells.
 - Run a variety of image processing filter on microscopy images to create a feature vector.
-- Partition data into training set and validation set.
-- Train support vector machine on training data.
-- Determine accuracy on validation data.
+- Partition data into a training set and validation set.
+- Train support vector machine on the training set.
+- Determine accuracy on the validation set.
 
-I inhereted the above algorithm from a previous grad student who took a job in industry.
-This project was a case study in poor programming practices:
+This code was a case study in poor programming practices:
 
-- No code documentation
-- Poor code-indentation
+- No documentation
+- Poor indentation
 - Rampant redundancy
-- Fragile code
-- Poor choice of languages: using Matlab to manage an image database.
+- Fragile: adding a database selection criteria required editing nearly every file in the project.
+- Matlab was a poor choice of languages for an image database and supervised learning.
 - Database key uniqueness issues
 
-After some time with the project, I made some improvements:
+During my limited time, I made some improvements:
 
-- Created code repository
-- Improved directory structure
-- Factor code to reduce redundancy
-- Reindex data to accomodate project growth
-- Write README document for future users
+- Created git repository
+- Improved directory structure: source code, data, documentation
+- Refactored the code to remove redundancy
+- Reindexed the database to accomodate project growth
+- Wrote a README document for future users
 - Improved prediction accuracy from 85% to 90%
 
 .. _`C elegans`: https://en.wikipedia.org/wiki/Caenorhabditis_elegans
+.. _`confocal microscope`: http://toutestquantique.fr/en/fluorescent-and-confocal/

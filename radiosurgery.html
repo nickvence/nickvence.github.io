@@ -95,31 +95,35 @@ fibrilation (a type of cardiac arrhythmia) is cauterizing (burning) part of the
 heart so that scar tissue will electrically isolate the tissue generating the spurious
 electrical impulse.</p>
 <p>Knowing that proton radiation kill cells and creates scar tissue, our research team
-was designing a non-invaisve treatment using a proton beam.  In the dose finding study,
-we used a rat model to test how much proton radiation was necessary to scar cardiac
-tissue.</p>
-<p>The animal procedure:</p>
-<ul class="simple">
+was designing a non-invaisve, proton, radiation treatment.
+I joined this project during the dose-finding portion of the study.
+We used a rat to determine the radiation dose needed to scar cardiac tissue.
+The treatment was to target the Sinoatrial node, the heart's spark plug,
+with radiation.  Our hypothesis was that we could detect the development of scar
+tissue in the Sinatrial node through an Electro-Cardiogram (ECG).</p>
+<p>The animal procedure was :</p>
+<ol class="arabic simple">
 <li><p>sedating the rat,</p></li>
 <li><p>giving the rat a <a class="reference external" href="https://en.wikipedia.org/wiki/CT_scan">CT-scan</a> (3D x-ray),</p></li>
-<li><p>planning two-beam treatment,</p></li>
+<li><p>planning two-beam proton radiation treatment,</p></li>
 <li><p>administering proton radiation, and</p></li>
-<li><p>monitor the heart for signs of scarring.</p></li>
-</ul>
-<p>For the first step, <a class="reference external" href="http://www.llu.edu/pages/faculty/directory/faculty.html?eid=1a34670">Ying Nie</a>, our fearless biologist, placed the rat in an anesthesia
-box before comfortably securing him in the half-pipe, anesthesia cradle that would carry
-him for the duration of the experiment (see Fig. 1 upper).</p>
-<p>The second step is to administer a chest <a class="reference external" href="https://en.wikipedia.org/wiki/CT_scan">CT-scan</a> to our furry rodent; this enables the creation
-of a two-beam radiation treatment plan.
+<li><p>monitoring the heart for signs of scarring.</p></li>
+</ol>
+<p>For the first step, <a class="reference external" href="http://www.llu.edu/pages/faculty/directory/faculty.html?eid=1a34670">Ying Nie</a>, our fearless biologist, placed the conscious rat in an
+anesthesia box before comfortably securing the sedated rat in the half-pipe, anesthesia cradle that
+would carry him for the duration of the experiment (see Fig. 1 upper).</p>
+<p>The second step was administering a chest <a class="reference external" href="https://en.wikipedia.org/wiki/CT_scan">CT-scan</a> to our furry rodent; the resulting 3D image
+gives our radiation specialist the information to create a two-beam, radiation, treatment plan.
 For a succesful chest scan, the x-ray radiation must be gated (paused) during breathing to keep
 the exposure from bluring during chest movement.
 On human subjects a box with reflective dots is placed on their chest and the CT-scanner
-registers its movement with a video feed. This set up would not work for our rats;
-they are too small and hidden from the video camera.</p>
-<p>Our solution was to measure the rat's breathing and artifically move the reflective box.
-The driving signal came from a BIOPAC pressure sensor with an analogue 10 Volt DC signal.
-I used an Arduino to convert this to a <a class="reference external" href="https://en.wikipedia.org/wiki/Pulse-width_modulation">pulse width modulation</a> signal that drove the
-servo motor which moved the box.  The first video gives an overview, and the second video
+registers its movement with a video feed. Unfortunately, this setup didn't work, for
+rats are too small, their breathing amplitude is too shallow, and were pointing away from the camera.</p>
+<p>Our solution was to use a pressure sensor to measure the rat's breathing and artifically
+move the reflective box to interface with the CT scanner's existing video recognition system.
+The BIOPAC pressure sensor (Fig. 1 lower) output 10 Volt DC analog signal, and
+I programmed an Arduino Uno to convert this to a <a class="reference external" href="https://en.wikipedia.org/wiki/Pulse-width_modulation">pulse width modulation</a> signal driving the
+servo motor which moved the reflective box.  The first video gives an overview, and the second video
 shows it in action.</p>
 <div class="youtube-video">
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CQWvdQLp8hk?rel=0&amp;wmode=transparent" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
@@ -127,14 +131,15 @@ shows it in action.</p>
 <div class="youtube-video">
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HKLfjAJJxnI?rel=0&amp;wmode=transparent" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
 </div>
-<p>While the treatment plan was being created, I calibrated the movable proton gantry <a class="footnote-reference brackets" href="radiosurgery.html#id2" id="id1">1</a>
-with proton-sensitive film.  Then we fixed the rat on the table, dialed in the offset,
-and exposed the rat for the proscribed dose.</p>
-<p>Afterwards the rats were returned to their cage and monitored for ECG abberations.</p>
+<p>While the treatment plan (step three) was being created, I measured the spatial offset in the
+gantry <a class="footnote-reference brackets" href="radiosurgery.html#id2" id="id1">1</a> using proton-sensitive film.  Then we performed step four: fixing the rat on the table,
+dialing in the offset, and administering the proscribed radiation dose.</p>
+<p>The final step took place over the following weeks as a cardiologist monitored the rat's ECG
+for aberations that might be caused by scar tissue forming in the heart.</p>
 <dl class="footnote brackets">
 <dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="radiosurgery.html#id1">1</a></span></dt>
 <dd>
-<p>Proton gantry is a movable proton beam.</p>
+<p>Proton gantry is a large machine designed to move a proton beam around a patient receiving radiation therapy.</p>
 </dd>
 </dl>
 </div>

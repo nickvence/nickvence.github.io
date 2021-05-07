@@ -13,10 +13,9 @@
 <meta property="og:site_name" content="Applied Stats">
 <meta property="og:title" content="Predicting Cell Phase">
 <meta property="og:url" content="https://nickvence.github.io/predicting-cell-phase.html">
-<meta property="og:description" content="The end of a  c elegans worm as seen by confocal microscope.
-The DNA of these stem cells has been stained red, and its
-shape can be used to predict the cell phase.
-The large green blob on the left is ">
+<meta property="og:description" content="Fig. 1 The end of a  c elegans worm as seen by confocal microscope.
+The stem cells have been stained red. Different reagents bind and highlight
+the DNA shape can which can be used to predict the cell ">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2021-01-04T17:09:34-05:00">
 <meta property="article:tag" content="Biology">
@@ -83,53 +82,53 @@ bg-dark
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <div class="figure align-center">
-<img alt="Confocal microscope of the c elegans worm" src="files/celegans.jpg"><p class="caption">The end of a  <em>c elegans</em> worm as seen by confocal microscope.
-The DNA of these stem cells has been stained red, and its
-shape can be used to predict the cell phase.
-The large green blob on the left is called the distal tip cell, which
+<img alt="Confocal microscope of the c elegans worm" src="files/celegans.jpg"><p class="caption"><strong>Fig. 1</strong> The end of a  <em>c elegans</em> worm as seen by confocal microscope.
+The stem cells have been stained red. Different reagents bind and highlight
+the DNA shape can which can be used to predict the cell phase.
+The large green blob on the left is the distal tip cell, which
 generates the stem cells that flow down the worm differentiating into
 their various roles.</p>
 </div>
 <p>Stem cells are interesting because they can divide and specialize.
 Control of stem cell development holds the promise of engineering new organs.
 While the use of human stem cells in research is fraught with ethical complications,
-<a class="reference external" href="https://en.wikipedia.org/wiki/Caenorhabditis_elegans">c elegans</a> worms are a small, translucent and have a short life span
-which is why they are an ideal model for studing stem cells.
-Confocal microscopes (along with DNA staining technology) enables the
-creation of 3D images of stem cell DNA of these small worms.</p>
+<em>`c elegans`_</em> worms are small, translucent and have a short life span
+making them ideal for studing stem cells.
+Confocal microscopes and DNA staining lets us create 3D images of their stem cell DNA
+similar to that in Fig. 1.</p>
 <p>An animal cell cycles through four stages of development: Growth (G1),
 Synthesize new DNA (S), more growth (G2), and spliting or mitosis (M).
-Staining applies a compound which bonds a fluorecent molecule to a desired target.
+Staining applies a reagent doped with a fluorecent molecule that binds to a desired target.
 It is possible to determine which cells are in a certain phase by
-staining them; however, trying to stain for multiple cell phases causes complications.
-<strong>The goal</strong>: use the shape of the DNA to classify the cell's phase.</p>
+staining them with a correponding reagent; unfotunately, using multiple stains
+causes complications.</p>
+<p><strong>The goal of this project</strong> is to use the DNA shape to classify the cell's phase.</p>
 <p>The procedure:</p>
 <ul class="simple">
 <li><p>Stain cell DNA <em>and</em> one phase.</p></li>
-<li><p>Image worms in confocal microscope.</p></li>
+<li><p>Image worms in <cite>confocal microscope</cite>.</p></li>
 <li><p>Segment the image into individual cells.</p></li>
 <li><p>Run a variety of image processing filter on microscopy images to create a feature vector.</p></li>
-<li><p>Partition data into training set and validation set.</p></li>
-<li><p>Train support vector machine on training data.</p></li>
-<li><p>Determine accuracy on validation data.</p></li>
+<li><p>Partition data into a training set and validation set.</p></li>
+<li><p>Train support vector machine on the training set.</p></li>
+<li><p>Determine accuracy on the validation set.</p></li>
 </ul>
-<p>I inhereted the above algorithm from a previous grad student who took a job in industry.
-This project was a case study in poor programming practices:</p>
+<p>This code was a case study in poor programming practices:</p>
 <ul class="simple">
-<li><p>No code documentation</p></li>
-<li><p>Poor code-indentation</p></li>
+<li><p>No documentation</p></li>
+<li><p>Poor indentation</p></li>
 <li><p>Rampant redundancy</p></li>
-<li><p>Fragile code</p></li>
-<li><p>Poor choice of languages: using Matlab to manage an image database.</p></li>
+<li><p>Fragile: adding a database selection criteria required editing nearly every file in the project.</p></li>
+<li><p>Matlab was a poor choice of languages for an image database and supervised learning.</p></li>
 <li><p>Database key uniqueness issues</p></li>
 </ul>
-<p>After some time with the project, I made some improvements:</p>
+<p>During my limited time, I made some improvements:</p>
 <ul class="simple">
-<li><p>Created code repository</p></li>
-<li><p>Improved directory structure</p></li>
-<li><p>Factor code to reduce redundancy</p></li>
-<li><p>Reindex data to accomodate project growth</p></li>
-<li><p>Write README document for future users</p></li>
+<li><p>Created git repository</p></li>
+<li><p>Improved directory structure: source code, data, documentation</p></li>
+<li><p>Refactored the code to remove redundancy</p></li>
+<li><p>Reindexed the database to accomodate project growth</p></li>
+<li><p>Wrote a README document for future users</p></li>
 <li><p>Improved prediction accuracy from 85% to 90%</p></li>
 </ul>
 </div>

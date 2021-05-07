@@ -1,34 +1,37 @@
 .. title: Nikola testdrive
 .. slug: nikola-testdrive
 .. date: 2021-02-01 16:51:24 UTC-05:00
-.. tags: nikola, reST, R
+.. tags: nikola, reST, R, ICD death-codes
 .. category: 
 .. link: 
 .. description: 
 .. type: text
-.. has_math:
+.. has_math: true
 
 Let's put reST through the paces -- to see how the features work.
 I want to do the following:
 
-* Insert picture
+* **bold**, *italic*
 * Use math:  :math:`E=mc^2`
-* Use hyperlink
-* use cross-refference
+* Use hyperlink: `CDC`_.
+* Use cross-refference Research_
+* Insert picture
 
 
-Here COVID deaths vs time compared to previous mortality.
+Monthly COVID are compared to previous year's mortality;
+the `CDC`_ data was taken mid-November, 2020.
 
-.. image:: /images/bar_chart.png
-
-This data comes from the `CDC`_.
-Here is what Einstein had to say,
+.. image:: /files/bar_chart.png
 
 .. include:: listings/bar_chart_COVID.R
 	:code: R
+
+.. attention:: The **image** directive *requires* the left-most
+    :code:`/` in its path, while the **include** directive
+    *can not have* the left-most :code:`/` in the path
 
 .. note:: reST's **include** directive allows us to include a file.
 	However, first make a symbolic link :code:`ln -s path/to/source.R`.
 
 .. _CDC: http://data.cdc.gov/NCHS/Weekly-Counts-of-Death-by-State-and-Select-Causes/muzy-jte6
-
+.. _Research: /research.html

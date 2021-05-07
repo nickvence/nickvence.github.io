@@ -16,8 +16,8 @@
 <meta property="og:description" content="Fig. 1 The representation of a discrete slope as modeled by metal sheets
 resting on ping pong balls.
 
-One problem landscape developers (civil engineers) face is the need to have a hill
-decline in elev">
+Landscape developers (civil engineers) often need a hill
+decline in elevation as rapidly as possib">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2021-02-05T14:14:01-05:00">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
@@ -78,28 +78,35 @@ bg-dark
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<div class="figure align-right">
-<img alt="The discrete slope represented by metal sheets resting on ping pong balls." src="files/discrete-slope.png" style="width: 600px;"><p class="caption"><strong>Fig. 1</strong> The representation of a discrete slope as modeled by metal sheets
+<div class="figure align-right" style="width: 400px">
+<img alt="Finite slope approximation" src="files/discrete-slope.png" style="width: 400px;"><p class="caption"><strong>Fig. 1</strong> The representation of a discrete slope as modeled by metal sheets
 resting on ping pong balls.</p>
 </div>
-<p>One problem landscape developers (civil engineers) face is the need to have a hill
+<p>Landscape developers (civil engineers) often need a hill
 decline in elevation as rapidly as possible. While the construction of a retaining
-wall is a last resort, an aesthetically-pleasing hillside is more desireable.</p>
-<p>Before the growth of precision guidance system, the standard procedure was the creation of
-a linear slope.  Unfotunately, a linear slope is not</p>
+wall is an expensive last resort, most prefer an inexpensive, aesthetically-pleasing hillside.</p>
+<p>Before Global Positioning Systems (GPS) spawned precision-tractors, engineers created
+constant-slope hillsides.  Unfotunately, this linear slope is not</p>
 <ul class="simple">
 <li><p>optimized for a rapid elevation decline</p></li>
 <li><p>optimized for errosion, and</p></li>
 <li><p>aesthetically pleasing.</p></li>
 </ul>
-<p>The growth of precision autoguidance construction equipment allows for the creation
-of slopes with a concave cross-section. Sokolovski described the optimal form of
-these slopes as the solution to boundary value problems in the 1960s.
-However, Isaac Jeldes, created an approximation to Sokolovski's boundary value problem
-that was a simple integral.  He tested his approximation's integrity with a finite
-element analysis scheme, and then asked me to help him justify approximation theoretically.
-Read the paper for the full scoop, but if you're pressed for time, approximating
-\[tan(x) \approx x\]</p>
+<p>Now that GPS-tractors can make concave slopes, the world will benefit from optimizing
+their shape.</p>
+<p>In the 1960s, Sokolovskii described the optimal form of these slopes as the solution
+to boundary value problems.
+However, <a class="reference external" href="https://www.linkedin.com/in/isaac-a-jeldes-halty-ph-d-p-e-55354352/">Isaac Jeldes</a>, approximated Sokolovski's boundary value problem with a
+simple integral.  He tested his approximation's integrity with a finite
+element analysis scheme, and asked me to help him justify approximation theoretically.
+Read the paper for the full scoop, but if you're pressed for time, we approximated tangent with
+the first term of its Taylor expansion
+\[tan(x) \approx x.\]
+This is justified for small angles and transforms the differential equation into one
+with an integral solution.
+This is a big win, for only a small subset of graduate-level engineers solve
+non-trivial differential equations; while calculus is a more commonly-used tool
+in the enigineers toolbox.</p>
 <div class="section" id="publication">
 <h3>Publication</h3>
 <p><a class="reference external" href="files/Vence02IJG.pdf">Approximate Solution to the Sokolovskiıĭ Concave Slope at Limiting Equilibrium</a></p>

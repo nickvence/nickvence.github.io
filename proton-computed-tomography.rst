@@ -1,7 +1,7 @@
 .. title: Proton Computed Tomography
 .. slug: proton-computed-tomography
 .. date: 2021-01-08 11:00:40 UTC-05:00
-.. tags: Science, Physics, Radiation
+.. tags: science, physics, radiation, medical imaging, algorithm, data
 .. category: Research
 .. link: 
 .. description: 

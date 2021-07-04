@@ -1,7 +1,7 @@
 .. title: COVID deaths
 .. slug: covid-deaths
 .. date: 2020-12-10 14:17:18 UTC-05:00
-.. tags: R, ggplot
+.. tags: R, ggplot, epidemiology
 .. category: 
 .. link: 
 .. description: Comparison of 2019 and 2020 COVID deaths

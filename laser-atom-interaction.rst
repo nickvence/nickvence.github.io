@@ -1,7 +1,7 @@
 .. title: laser-atom interaction
 .. slug: laser-atom-interaction
 .. date: 2021-01-04 12:34:35 UTC-05:00
-.. tags: Science, Physics, 
+.. tags: science, physics 
 .. category: Research
 .. link: 
 .. description: 

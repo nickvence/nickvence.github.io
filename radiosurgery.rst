@@ -1,7 +1,7 @@
 .. title: Radiosurgery
 .. slug: radiosurgery
 .. date: 2021-01-06 08:51:02 UTC-05:00
-.. tags: Science, Physics, Medicine, Radiation
+.. tags: science, physics, medicine, radiation
 .. category: Research
 .. link: 
 .. description: 

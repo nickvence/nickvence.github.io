@@ -1,7 +1,7 @@
 .. title: MADNESS
 .. slug: madness
 .. date: 2021-01-15 16:30:56 UTC-05:00
-.. tags: 
+.. tags: science, math, algorithm, differential equations
 .. category: 
 .. link: 
 .. description: 
@@ -34,7 +34,7 @@ While this popular approach works for a wide variety of problems, it breaks down
 high-dimension problems that require resolution at multiple length-scales.
 
 .. table:: Memory usage as a function of :math:`N_{size}`.
-    :class: float-left m-4 border border-dark table-striped 
+    :class: float-left m-4 table-sm table-striped 
 
     +----------------+----------------+
     | \\[N_{side}\\] | \\[N_{total}\\]|

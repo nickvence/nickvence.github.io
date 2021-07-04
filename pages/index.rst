@@ -24,19 +24,19 @@ largest computers at the `Joint Institute of Computational Sciences`_ located at
 `Oak Ridge National Laboratories`_.  During my first postdoc at `University of California Irvine`_,
 I used using machine learning to identify the phases of stem cells using the shape of their DNA.
 During my second postdoc at `Loma Linda University`_, I joined a translational research team
-creating a proton radiation to improve medical imaging (creating a proton computed
-tomography scanner) and pioneering radiosurgery using small animals models.
+creating a proton computed tomography scanner (to improve treatment on cancer patients)
+and pioneering radiosurgery using small animals models.
 Later I joined a prosective dietary cohort (N=96,000) as a Data Analyst.
 
-I enjoyed each of the projects. They were inspiring and I learned much from each group.
+I enjoyed each project; they were inspiring and I learned much from each group.
 However, I began to realize a troubling trend (structural flaw) in the economics of 
 grant-funded research: funding growth does not match the growth of new researchers -- 
 newly-minted PhDs like myself.
 
-This imbalance means many groups run into funding snag where unexpected budget cuts 
-or the inability to secure additional grants means personel can no longer be supported.
-Having identified the problem, I've decided to be part of the solution and remove myself
-from the funding race.
+This imbalance means groups periodically experience funding lapse where unexpected budget cuts 
+or a grant shortage means personel can no longer be supported.
+Having identified the problem, I've decided to be part of the solution by removing myself
+from the funding race by working for buisiness supported by consumer demand.
 
 
 ---------------------

@@ -1,7 +1,7 @@
 .. title: Predicting Cell Phase
 .. slug: predicting-cell-phase
 .. date: 2021-01-04 17:09:34 UTC-05:00
-.. tags: Science, Biology, Machine Learning, Support Vector Machine, Matlab, Database
+.. tags: science, biology, machine learning, support vector machine, matlab, database
 .. category: Research
 .. link: 
 .. description: 
@@ -38,23 +38,24 @@ causes complications.
 The procedure:
 
 - Stain cell DNA *and* one phase.
-- Image worms in `confocal microscope`.
+- Image worms in a `confocal microscope`_.
 - Segment the image into individual cells.
-- Run a variety of image processing filter on microscopy images to create a feature vector.
-- Partition data into a training set and validation set.
-- Train support vector machine on the training set.
-- Determine accuracy on the validation set.
+- Run a variety of image processing filters on the microscopy image to create a feature vector.
+- Partition data into training, validation, and sets.
+- Train a support vector machine on the training set.
+- Optimize parameters on the validation set.
+- Test its accuracy on the test set.
 
-This code was a case study in poor programming practices:
+The code I inherited was a case study in poor programming practices:
 
 - No documentation
 - Poor indentation
 - Rampant redundancy
-- Fragile: adding a database selection criteria required editing nearly every file in the project.
+- Fragile: adding changing the database selection criteria required modifying nearly every file in the project.
 - Matlab was a poor choice of languages for an image database and supervised learning.
 - Database key uniqueness issues
 
-During my limited time, I made some improvements:
+During my limited time on the project, I made the following improvements:
 
 - Created git repository
 - Improved directory structure: source code, data, documentation

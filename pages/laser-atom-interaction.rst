@@ -10,9 +10,8 @@
 .. has_math: true
 
 
-A LASER (Light Amplification by Stimulated Emition of Radiation) is generated when
-a collection atoms are stimulated between two highly-reflected mirrors.
-Photons (pieces of light) bounce back and forth further stimulating light into
+A laser is generated when a collection atoms is stimulated between two highly-reflected mirrors.
+Photons bounce back and forth further stimulating light into
 a coherent (laser) beam.
 
 .. youtube:: R_QOWbkc7UI
@@ -22,21 +21,24 @@ a coherent (laser) beam.
     :width: 400
     :align: right
 
-Atoms are used to generate lasers, and lasers perturb the electrons surrounding atoms.
-Atomic Molecular and Optical physicists study these interactions in depth to learn more
+REWRITE
+Atoms are the most common SPELL lasing medium, and lasers perturb the electrons surrounding atoms.
+Atomic molecular and optical physicists study these interactions in depth to learn more
 about nature, and to develop better lasers. 
 
-During my graduate work I joined two computational scientists at `Oak Ridge National Laboratory`_.
-My science advisor, Predrag Krstic, was intrested in modeling quantum mechanical phenomena
-in short-pulse interactions.  My computation advisor, Robert Harrision, was interested in
-creating a framework to empower scientists to take advantage of High Performance Computing (HPC).
-Together they helped me create a computational experiment simulating how single-electron atoms
+During my graduate work, I joined two computational scientists at `Oak Ridge National Laboratory`_.
+My science advisor, Predrag Krstic, was interested in modeling quantum mechanical phenomena
+in short-pulse interactions.  My computation advisor, Robert Harrison, was interested in
+creating a framework to empower scientists to take advantage of high performance computing (HPC).
+Together, they helped me create a computational experiment simulating how single-electron atoms
 (Hydrogen, $He^+$, $Li^{2+}$) responded to a strong, short laser pulse.  This research was
-built on Robert Harrison's MADNESS_ framework. Sometimes it was exciting to develop world-class;
+built on Robert Harrison's MADNESS_ framework.
+IMPROVE 
+Sometimes it was exciting to develop world-class techonolgy;
 other times it was frustrating pausing science to improve the tool.
 
 I wrote my thesis_ as a guide for those interested in computing strong laser-atom interactions.
-In it I discus my project's motivation, review of competing algorithms for non-perturbative,
+In it, I discuss my project's motivation, review competing algorithms for non-perturbative,
 laser-atom interactions, published my results, and outlined the potential future directions
 one could take this project.
 

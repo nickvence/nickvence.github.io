@@ -1,1 +1,0 @@
-/Users/nvence/prog/COVID-19/data_CDC/bar_chart_COVID.R

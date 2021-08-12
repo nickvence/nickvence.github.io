@@ -1,0 +1,3 @@
+.. title: Graph Gallery
+
+Some of my more interesting graphs.

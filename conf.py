@@ -140,8 +140,10 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ("/posts/index.html", "Blog"),
         ("/research.html", "Research"),
+        ("/posts/index.html", "Blog"),
+        ("/galleries/graph/", "Gallery"),
+        ("/about.html", "About"),
         ("/categories/index.html", "Tags"),
     ),
 }
@@ -400,6 +402,19 @@ TAG_PATH = "categories"
 # If TAG_PAGES_ARE_INDEXES is set to True, each tag's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
 TAG_PAGES_ARE_INDEXES = True
+
+# Name for the page with the list of all page tags
+TAGGED_PAGES_INDEX_PATH = "tagged_pages.html"
+# Folder where the files for each tag should be
+TAGGED_PAGES_PATH = "tagged_pages"
+# Similar to TAG_TITLES, defaults to it.
+TAGGED_PAGES_TITLES = {
+   DEFAULT_LANG: {
+       "blogging": "Pages about blogging",
+       "open source": "Pages about open source software",
+       "foo": "Pages about open source software",
+   },
+}
 
 # Set descriptions for tag pages to make them more interesting. The
 # default is no description. The value is used in the meta description
@@ -777,11 +792,11 @@ GITHUB_COMMIT_SOURCE = True
 # "source/" and the results will be located in
 # "OUTPUT_PATH/relative_destination/gallery_name"
 # Default is:
-# GALLERY_FOLDERS = {"galleries": "galleries"}
+GALLERY_FOLDERS = {"galleries": "galleries"}
 # More gallery options:
-# THUMBNAIL_SIZE = 180
+THUMBNAIL_SIZE = 180
 # MAX_IMAGE_SIZE = 1280
-# USE_FILENAME_AS_TITLE = True
+USE_FILENAME_AS_TITLE = True
 # EXTRA_IMAGE_EXTENSIONS = []
 
 # Use a thumbnail (defined by ".. previewimage:" in the gallery's index) in

@@ -21,17 +21,17 @@ Introduction
     **Fig. 1** The number of boxes in a three-dimensional, finite-element grid is
     vastly different for a slightly different resolutions: see the numbers in table.
     
-Partial Differential Equations (PDE) are used to approximate solutions to a variety of
+Partial differential equations (PDE) are used to approximate solutions to a variety of
 real world problems.
 MADNESS (Multiresolution ADaptive Numerical Environment for Scientific Simulation) is
 a framework written in C++ for solving differential (and integral) equations efficiently
-on High Performance Compouters (HPC).
+on high performance computers (HPC).
 
-A first step to learning MADNESS, is understanding the most popular model for solving PDEs:
+A first step to learning MADNESS is understanding the most popular model for solving PDEs:
 the `finite element method`_ scheme which discretizes space (dividing it into boxes) and then
-creates functions and opperators to approximate the solution on the mesh (the discretized space).
+creates functions and operators to approximate the solution on the mesh (the discretized space).
 While this popular approach works for a wide variety of problems, it breaks down for
-high-dimension problems that require resolution at multiple length-scales.
+high-dimensional problems that requires resolution at multiple length-scales.
 
 .. table:: Memory usage as a function of :math:`N_{size}`.
     :class: float-left m-4 table-sm table-striped 
@@ -49,32 +49,31 @@ high-dimension problems that require resolution at multiple length-scales.
     +----------------+----------------+
 
 As a practical example, suppose you are interested in modeling 
-three dimensional (3D) water waves on finite element grid.
+three dimensional (3D) water waves on a finite element grid. DEFINE BOX as ELEMENT
 Now suppose you need to include the interaction of the large ocean waves with the
 small waves of an outboard motor; this is a problem with multiple length scales.
-Large waves require a large simulation volume, and small waves require small boxes.
-This combination uses lots of boxes, lots of memory, and will scale poorly when increasing the resolution.
+Large waves require a large total simulation volume, while small waves require a tiny volume units.
+This combination uses lots of memory, and will scale poorly when increasing the resolution.
 The memory footprint is proportional to the total number of boxes or elements :math:`N_{total}`, for 
 
 \\[\\text{Memory size} = O(N_{side}^3). \\]
 
-A high-dimension, high-resolution problem is the weakness of the finite element method.
+A high-dimensional, high-resolution problem is the weakness of the finite element method.
 When possible, it is advantagous to use the fewest number of dimensions that adequately
-capture the phenomena. For instance, given a spherically symmetric electron cloud in the
+capture the phenomenon. For instance, given a spherically symmetric electron cloud in the
 presence of a linearly-polarized electric field, cylindrical symmetry is imposed on the
-system. This makes a 2D simulation is sufficient; however, an elliptically-polarized laser,
+system. This makes a 2D simulation is sufficient; an elliptically-polarized laser,
 however, breaks the cylindrical symmetry requiring a 3D simulation.
-
 
 1D and most 2D problems can be solved on personal computers; however, when increasing
 complexity outpaces the abilities of a personal computer, small workstations (or cloud
-computing) are the next solution.  These have a handful of processors (with dozens
+computing) are the next solution.  These use multiple of processors (with dozens
 of computing cores) and can be built with over 100 GB of shared memory. In shared memory
-computers, memory size (or processing power) is the bottlneck.
+computers, memory size (or processing power) is the bottleneck.
 However, some simulations (supernova, weather, molecular dynamics, etc.) require the
-largest computers that use distributed memory.
+largest computers, and these use distributed memory.
 In these systems, interprocessor communication becomes the bottleneck. 
-While supercomputers will always be improving bus speed, fiber optic gates, interconnects,
+While supercomputers will always be improving bus speeds, fiber optic interconnects,
 network topology, and routing algorithms; users must create code to take advantage of
 these technologies.
 
@@ -92,7 +91,7 @@ MADness: a Multiresolution ADaptive mesh
     **Fig. 2** A multiresolution mesh has more than one size box in the grid,
     and an adaptive grid places extra grid points just where they are needed.
 
-One way of solving the issue of multiple length-scales on a high-dimentional 
+One way of solving the issue of multiple length-scales on a high-dimensional
 domain is to introduce a multiresolution (variable-size) mesh
 shown in Fig. 2.  Multiresolution is the M in the MADNESS acronym.
 
@@ -136,48 +135,47 @@ features:
 HPC API
 -------
 A 3D finite-element scheme stores the data of the simulation function
-(ocean waves, or electron wave function) in fixed, 3D array.
+(ocean waves, or electron wave function) in a fixed, 3D array.
 MADNESS functions, due to their adaptive nature are stored as a tree.
-To facilitate fast guaranteed-precision math on this tree, 
-MADNESS provides an Application Programming Interface (API)
+To facilitate fast, guaranteed precision math on this tree, 
+MADNESS provides an application programming interface (API)
 for common operations for functions of one to six dimensions.
 These operations include: arithmetic, linear algebra, numerical
-differentiation and integral convolution.
+differentiation, and integral convolution.
 This API enables the creation of code that often reads like the
 math equation that it is modeling. For an example see section 3 of the `SIAM publication`_.
 
 "Basis-free" computing
 ----------------------
 Many simple chemical systems are efficiently modeled using a molecular-orbit basis.
-These basis functions refelct the symmetry of the system, and chemical processes near the
-ground state are accurately described with just a few molecular-orbital, basis functions.
-This is referred to as a sparce basis, and it is a good thing.
+These basis functions reflect the symmetry of the system, and chemical processes near the
+ground state are accurately described with just a few molecular-orbital basis functions.
+This is referred to as a sparse basis, and is computationally beneficiais computationally beneficial
 
-While a sparce basis makes for efficient computation, it has a dark side: basis error.
+While a sparse basis makes for efficient computation, it has a dark side: basis error.
 For low-energy processes (between the ground state and first excited state), the
-basis error is small. However, as higher energy chemical processes involve
-more exotic excitations which, in turn, require more basis functions and amplify
+basis error is small. However, as higher-energy chemical processes involve
+more exotic excitations more basis functions are requred which amplifies
 basis error. For these systems, MADNESS (like a finite element scheme)
 becomes an attractive solution that doesn't have basis error.
-However, being more memory-efficient MADNESS outperforms the finite elements scheme
+However, being more memory-efficient, MADNESS outperforms the finite elements scheme
 which is seen as a dense solution to the problem.
-
 
 Load-balancing
 --------------
 There are physical limits on processor speed;
-for this reason, HPC is synonomous with distributed computing.
-Today, the fastest computers have the most processors.
-Computers with thousands of available processors are no longer rare at universities and governemnt labs.
-However, writing efficient code to use of these computers is a challenge.
+for this reason, HPC is synonymous with distributed computing.
+Today, the most powerful computers have the most processors.
+Computers with thousands of available processors are no longer rare at universities and government labs.
+However, writing efficient code to make use of these computers is a challenge.
 
 An important test for HPC software is the **scaling test**: benchmarking
 code speed as a function of the number of processors on which it is run.
-Creating code whose speed scales linearly with the number of processors is the holy grail in HPC.
-Scaling measures the efficiency of processor use.  While more processors usually brings more speed,
-in reality the law of diminishing returns usually takes over.
+Creating code whose speed scales linearly with the number of processors is the main goal in HPC.
+IMPROVE SENTENCE Scaling measures the efficiency of processor use.  While more processors usually brings more speed,
+in reality the law of diminishing returns eventually takes over.
 
-MADNESS successfully scales to over thousands of processors;
+MADNESS successfully scales to thousands of processors;
 this is due in part to its internal compartmentalization of work for
 its task-queue that is designed to hide interprocessor communication latency. 
 To learn more about the task queue read section 4 of the `SIAM publication`_.
@@ -189,7 +187,8 @@ Creating code that can take advantage of modern supercomputers can be a career.
 Unfortunately, most scientists already have a career, and can't afford to put it
 on hold while mastering distributed computing software development.  
 The following technologies allow average programmers (through MADNESS)
-to stand on the shoulders of giants:
+to leverage industry standard:
+
 - **Global Arrays** an API for shared memory programming on distributed memory computers.
 - **MPI** Message Passing Interface for distributed-memory parallel programming.
 - **OpenMP** an interface to shared-memory parallel programming.
@@ -203,10 +202,10 @@ Publications
 The `SIAM publication`_ is a scholarly introduction to the mathematics of MADNESS
 that describes the distributed computing technologies it relies on and reviews some scientific applications.
 
-My `Physics Review A publication`_ solves the time-dependent Schrodinger equation in a stong laser field
-using MADNESS.  It introduces MADNESS to the atomic physics community.
+My Physics Review A `publication`_ solves the time-dependent Schrodinger equation in a strong laser field
+using MADNESS.  It provides an introduction to  MADNESS to the atomic physics community.
 
-Here is a brisk, 15-minute overview of MADNESS from its founder Robert Harrison.
+Here is a brief, 15-minute overview of MADNESS from its founder Robert Harrison.
 
 .. youtube:: dBwWjmf5Tic
 
@@ -215,4 +214,4 @@ Here is a brisk, 15-minute overview of MADNESS from its founder Robert Harrison.
 .. _`atomic force microscope`: https://en.wikipedia.org/wiki/Atomic_force_microscopy
 .. _`Quantum Made Simple`: http://toutestquantique.fr/en/afm/
 .. _`SIAM Publication`: https://amath.colorado.edu/faculty/beylkin/papers/H-B-B-C-F-F-G-etc-2016.pdf
-.. _`Physics Review A Publication`: /files/Vence01PRA.pdf
+.. _publication: /files/Vence01PRA.pdf

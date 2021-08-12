@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="fair_bias_coin.R">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fair_bias_coin.R | Applied Stats</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://nickvence.github.io/listings/fair_bias_coin.R.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="../posts/index.html" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="../galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="../about.html" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="fair_bias_coin.R" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href=".">listings</a></li>
+                <li class="breadcrumb-item active">fair_bias_coin.R</li>
+</ul></nav><h1>fair_bias_coin.R
+        <small><a href="fair_bias_coin.R">(Source)</a></small>
+    </h1>
+    <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-1" name="listingsfair_bias_coinr-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-2" name="listingsfair_bias_coinr-2"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-3" name="listingsfair_bias_coinr-3"></a><span class="nf">ggplot</span><span class="p">(</span><span class="n">mtcars</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">wt</span><span class="p">,</span> <span class="n">mpg</span><span class="p">))</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-4" name="listingsfair_bias_coinr-4"></a>  <span class="nf">geom_point</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-5" name="listingsfair_bias_coinr-5"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-6" name="listingsfair_bias_coinr-6"></a><span class="n">n</span> <span class="o">&lt;-</span>  <span class="m">0</span><span class="o">:</span><span class="m">20</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-7" name="listingsfair_bias_coinr-7"></a><span class="n">color</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="s">"grey50"</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-8" name="listingsfair_bias_coinr-8"></a><span class="n">color</span><span class="p">[</span><span class="m">12</span><span class="p">]</span> <span class="o">=</span> <span class="s">"red"</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-9" name="listingsfair_bias_coinr-9"></a><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-10" name="listingsfair_bias_coinr-10"></a>             <span class="n">fair</span> <span class="o">=</span> <span class="nf">dbinom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="n">.</span><span class="m">5</span><span class="p">),</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-11" name="listingsfair_bias_coinr-11"></a>             <span class="n">biased</span> <span class="o">=</span> <span class="nf">dbinom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="n">.</span><span class="m">75</span><span class="p">),</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-12" name="listingsfair_bias_coinr-12"></a>             <span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-13" name="listingsfair_bias_coinr-13"></a>  <span class="nf">pivot_longer</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">"fair"</span><span class="p">,</span><span class="s">"biased"</span><span class="p">))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-14" name="listingsfair_bias_coinr-14"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-15" name="listingsfair_bias_coinr-15"></a><span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-16" name="listingsfair_bias_coinr-16"></a>  <span class="nf">xlim</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nf">max</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-17" name="listingsfair_bias_coinr-17"></a>  <span class="nf">geom_col</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">color</span><span class="p">))</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-18" name="listingsfair_bias_coinr-18"></a>  <span class="nf">facet_grid</span><span class="p">(</span><span class="n">name</span> <span class="o">~</span> <span class="n">.</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-19" name="listingsfair_bias_coinr-19"></a>  <span class="nf">scale_fill_manual</span><span class="p">(</span><span class="n">values</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"grey50"</span><span class="p">,</span> <span class="s">"red"</span><span class="p">))</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-20" name="listingsfair_bias_coinr-20"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">"Flips"</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">"Probability"</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-21" name="listingsfair_bias_coinr-21"></a>  <span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span> <span class="o">=</span> <span class="s">"none"</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsfair_bias_coinr-22"><code data-line-number="22"></code></a></td>
+<td class="code"><code><a id="listingsfair_bias_coinr-22" name="listingsfair_bias_coinr-22"></a>  <span class="nf">ggsave</span><span class="p">(</span><span class="s">"fair_bias_coin.png"</span><span class="p">)</span>
+</code></td>
+</tr>
+</table></div>
+
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

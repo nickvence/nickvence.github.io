@@ -25,7 +25,7 @@ Before Global Positioning Systems (GPS) spawned precision-tractors, engineers cr
 constant-slope hillsides.  Unfotunately, this linear slope is not
 
 - optimized for a rapid elevation decline
-- optimized for errosion, and 
+- optimized for erosion, and 
 - aesthetically pleasing.
 
 Now that GPS-tractors can make concave slopes, the world will benefit from optimizing
@@ -33,17 +33,16 @@ their shape.
 
 In the 1960s, Sokolovskii described the optimal form of these slopes as the solution
 to boundary value problems.
-However, `Isaac Jeldes`_, approximated Sokolovski's boundary value problem with a
+However, `Isaac Jeldes`_ approximated Sokolovski's boundary value problem with a
 simple integral.  He tested his approximation's integrity with a finite 
-element analysis scheme, and asked me to help him justify approximation theoretically.
-Read the paper for the full scoop, but if you're pressed for time, we approximated tangent with
-the first term of its Taylor expansion
+element analysis scheme, and asked me to help him justify the approximation theoretically.
+We approximated the tangent with the first term of its Taylor expansion
 \\[tan(x) \\approx x.\\]
 This is justified for small angles and transforms the differential equation into one
 with an integral solution.
-This is a big win, for only a small subset of graduate-level engineers solve
+This is a big win, because only a small subset of graduate-level engineers solve
 non-trivial differential equations; while calculus is a more commonly-used tool
-in the enigineers toolbox.
+in the engineers toolbox.
 
 Publication
 -----------

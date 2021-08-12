@@ -42,10 +42,16 @@ bg-dark
         <div class="collapse navbar-collapse" id="bs-navbar">
             <ul class="navbar-nav mr-auto">
 <li class="nav-item">
+<a href="research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
 <a href="posts/index.html" class="nav-link">Blog</a>
                 </li>
 <li class="nav-item">
-<a href="research.html" class="nav-link">Research</a>
+<a href="galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="about.html" class="nav-link">About</a>
                 </li>
 <li class="nav-item">
 <a href="categories/index.html" class="nav-link">Tags</a>
@@ -98,24 +104,23 @@ later, when rumors of her involvement with other men were confirmed three more h
 <p><strong>Catherine Parr</strong> was Henry's final wife. She helped him reconsile with his daughters Mary
 ane Elizabeth and nursed him to his death.</p>
 </div>
-<a class="reference external image-reference" href="http://www.gmtgames.com"><img alt="http://www.gmtgames.com/nnhis/cover.jpg" class="align-left" src="http://www.gmtgames.com/nnhis/cover.jpg" style="width: 150px;"></a>
+<a class="reference external image-reference" href="http://www.gmtgames.com"><img alt="http://www.gmtgames.com/nnhis/cover.jpg" class="align-left" src="http://www.gmtgames.com/nnhis/cover.jpg" style="width: 300px;"></a>
 <p>This article analyzes conditional probablilty in the context of the six-player, asymmetric
 board game <a class="reference external" href="https://www.gmtgames.com/p-508-here-i-stand-500th-anniversary-reprint-edition.aspx">Here I Stand</a> (HIS). Each player of HIS has a special way to earn victory points.
 For instance, the English player gets 5 Victory Points (VP) upon produicing a male heir.
-Since the first player to 25 VP wins, there is substantial incentive to secure the succession.</p>
-<a class="reference external image-reference" href="https://en.wikipedia.org/wiki/Henry_VIII"><img alt="/files/HenryVIII.png" class="align-left" src="files/HenryVIII.png" style="width: 150px;"></a>
-<p>After playing his home card and persue a wife, the English player rolls a (six-sided) die
-and consults the Henry's wives' pregnancy chart to see if any VP/children are born.
-The English player might be interseted in the probability of acquiring a male heir
+Since the first player to 25 VP wins, there is substantial incentive for England to secure the
+succession.</p>
+<a class="reference external image-reference" href="https://en.wikipedia.org/wiki/Henry_VIII"><img alt="/files/HenryVIII.png" class="align-left" src="files/HenryVIII.png" style="width: 300px;"></a>
+<p>After playing his home card to persue a wife, the English player rolls a (six-sided) die
+and consults the Henry's wives' pregnancy chart to see if any children (VP) are born.
+The English player might be interested in the probability of acquiring a male heir
 based on the number of rolls.  Mathematically, this is the cumulative probability distribution
 and its calculation is the subject of this article.</p>
 <p>HIS captures this drama, by awarding the English player special victory points based
 on his progeny. Once per turn (HIS has only nine turns), the English player may play his
 home card to roll a six-sided dice whose results are determined by the following table.</p>
-<p>The probability of event A is written $P(A) = N_A/N_{total}$ where $N_A$ is the number of
-outcomes where A is accomplished, and $N_{total}$ is the total events.  For example, if
-event A is rolling a 3 on a pair of dice, then $N_A = 2$, $N_{total} = 36$, and $P(A) = 1/18$.</p>
-<table>
+<!-- :class: float-left table-light table-sm m-4 -->
+<table class="table-secondary table-bordered width-100">
 <caption>
 <strong>Table 0</strong> Henry's Wives' Pregancy Chart</caption>
 <colgroup>
@@ -128,64 +133,86 @@ event A is rolling a 3 on a pair of dice, then $N_A = 2$, $N_{total} = 36$, and 
 </tr></thead>
 <tbody>
 <tr>
-<td><p>6+</p></td>
+<td><p>⚅+</p></td>
 <td><p><strong>Success</strong> - <strong>5 VP</strong> Edward VI becomes Henry's healthy, long-lived heir.
 If Edward was born on a previous result of 5, this result
 indicates that  he regained his health.</p></td>
 </tr>
 <tr>
-<td><p>5</p></td>
+<td><p>⚄</p></td>
 <td><p><strong>Partial success</strong> - <strong>5 VP</strong> a sickley boy is born though the blessed
 queen dies soon after the birth. Add Mary I to the deck after Edward's
 succession.  Add Edward I on Turn 6, and Mary I to the deck the first turn
 Edward rules.</p></td>
 </tr>
 <tr>
-<td><p>4</p></td>
+<td><p>⚃</p></td>
 <td><p><strong>A baby is born</strong> - <strong>2 VP</strong> but alas, it is a girl. Elizabeth I is added
 to the the on the first turn after Mary I becomes queen of England.</p></td>
 </tr>
 <tr>
-<td><p>3</p></td>
+<td><p>⚂</p></td>
 <td><p>Henry's flirtatious, young wife is found cavorting with other men. She is
 sent to the Tower of London and beheaded. Advance the marital status maker
 and roll again for another wife.</p></td>
 </tr>
 <tr>
-<td><p>2</p></td>
+<td><p>⚁</p></td>
 <td><p>The queen is a loving step mother of Henry's children and a nurse to Henry.</p></td>
 </tr>
 <tr>
-<td><p>1</p></td>
+<td><p>⚀</p></td>
 <td><p>After an arranged marriage, Henry is repulsed once he sees his wife.
 the marriage is never consumated and divorces follows in 6 months.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="section" id="probability">
+<h3>Probability</h3>
+<p>This problem becomes easier to discuss when we use the right notation.
+Let's review some probability theory:</p>
+<ul class="simple">
+<li><p>Sample space, sample point, event, random variable, complement.</p></li>
+<li><p>Conditional probability.</p></li>
+<li><p>A partition.</p></li>
+<li><p>The probability of an event E conditional on a partition.</p></li>
+</ul>
+<p>The <strong>sample space</strong> $\Omega$ is the set of all possible outcomes; these outcomes must be
+mutually exclusive (non-overlapping) and exhaustive (nothing that can happen is left out).
+The elements of the sample space are the called <strong>sample points</strong> $\omega$.
+The sample space is the collection of dice rolls needed for a player to win.
+Here are some sample points (⚄), (⚁,⚅).
+Notice that (⚄,⚅) is not in the sample space, because one doesn't continue rolling after you win.
+Notice that the <strong>event</strong> of winning on the first roll, $E_1$, contains two sample points: (⚄), (⚅).</p>
+<p>The probability of event A is written
+$$P(A) = N_A/N_{total}$$
+where $N_A$ is the number of sample points in A and $N_{total}$ is the total sample points.
+For example, if event A is rolling a 3 on a pair of dice,
+then there are 36 elements in the sample space, and two sample points (⚀,⚁) and (⚁,⚀) correspond
+to a three; thus, $N_A = 2$, $N_{total} = 36$, and $P(A) = 1/18$.</p>
+</div>
 <div class="section" id="roll-1">
 <h3>Roll 1</h3>
-<p>The event that Henry VIII was interested in was producing a male heir is satisfied by rolling
-a five or six. On the first roll the probability of this happening is $2/6 = 0.33$.</p>
-<table class="float-right align-right">
+<table class="float-right table-bordered align-right">
 <caption>
-<strong>Table 1</strong>  $P(A)$ is the probability of getting to Roll 1 is certain: you can't win before playing.  $P(B|A)$ is the probability of winning given we are at Roll 2.</caption>
+<strong>Table 1</strong>  P(start), the probability of getting to Roll 1, is certain: if you start the game,you can make the first roll. $E_1$ is the event of winning on the first roll.$P(E_1|start)$, the probability of winning on the first roll given we have started,is equal to $P(E_1) P(start)$.</caption>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 12%">
 <col style="width: 15%">
-<col style="width: 31%">
-<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 24%">
+<col style="width: 33%">
+<col style="width: 10%">
 </colgroup>
 <thead><tr>
 <th class="head"><p>Roll 1</p></th>
-<th class="head"><p>P(A)</p></th>
-<th class="head"><p>P(B|A)</p></th>
-<th class="head"><p>P(B $\cap$ A)</p></th>
+<th class="head"><p>$P(start)$</p></th>
+<th class="head"><p>$P(E_1|start)$</p></th>
+<th class="head"><p>$P(E_1 \cap start)$</p></th>
 <th class="head"><p>Win%</p></th>
 </tr></thead>
 <tbody>
 <tr>
-<td><p>five six</p></td>
+<td><p>⚄ ⚅</p></td>
 <td><p>1</p></td>
 <td><p>2/6</p></td>
 <td><p>1/3</p></td>
@@ -198,53 +225,54 @@ a five or six. On the first roll the probability of this happening is $2/6 = 0.3
 </tr>
 </tbody>
 </table>
+<p>Henry VIII was interested in producing a male heir, so let $E_1$ be winning on Roll 1.
+This happens by rolling a ⚄ ⚅; therefore, the probability of a male heir
+being born is $2/6 = 0.333$.
+The probability of getting to this roll <a class="footnote-reference brackets" href="conditional-probability-henry-viii.html#id3" id="id1">1</a>, which is 100%; therefore, $P(A) = 1$.</p>
+<p>The probability that event $E$ does not happen is
+$$
+P(!E) = 1 - P(E)
+$$
+The probability of getting to Roll 2 is the probability that
+we do not win on Roll 1: 1 - 2/6 = 0.667.</p>
 </div>
 <div class="section" id="roll-2">
 <h3>Roll 2</h3>
-<p>Roll 2 has two confounding details.
-First, should a player roll a number a second time, he is awarded the next-highest number.
-Second, Jane Seymour (the second queen) gets +1 added to her roll since she was the mother of Edward VI.</p>
-<dl class="simple">
-<dt>Were it not for Jane Seymore, there would be three ways to win on Roll 2:</dt>
-<dd><ul class="simple">
-<li><p>roll 1-4 followed by a 6,</p></li>
-<li><p>roll 1-4 followed by a 5, and</p></li>
-<li><p>roll 4 followed by a 4.</p></li>
-</ul></dd>
-<dt>However, thanks to +1 confirred by Jane Seymore the following paths all lead to a win:</dt>
-<dd><ul class="simple">
-<li><p>roll 1-4 followed by a 6,</p></li>
-<li><p>roll 1-4 followed by a 5,</p></li>
-<li><p>roll 1-4 followed by a 4, and</p></li>
-<li><p>roll 4 followed by a 3.</p></li>
-</ul></dd>
-</dl>
-<table class="float-right align-right">
+<p>The game has two rules that make calculating Roll 2 more difficult.
+First, there is a rule that when a player rerolls a number, he is awarded the next-highest number.
+Second, Jane Seymour (the second queen) gets +1 added to her roll since she was the mother of Edward VI.
+This modification accounts for the + in the first row of Table 0.</p>
+<table class="float-right table-bordered">
 <caption>
 <strong>Table 2</strong>  $P(A)$ is the probability of getting to Roll 2.  $P(B|A)$ is the probability of winning given we are at Roll 2.</caption>
 <colgroup>
-<col style="width: 28%">
-<col style="width: 17%">
 <col style="width: 15%">
-<col style="width: 28%">
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 15%">
+<col style="width: 30%">
 <col style="width: 13%">
 </colgroup>
 <thead><tr>
+<th class="head"><p>Roll 1</p></th>
 <th class="head"><p>Roll 2</p></th>
 <th class="head"><p>P(A)</p></th>
 <th class="head"><p>P(B|A)</p></th>
-<th class="head" colspan="2"><p>P(B $\cap$ A) | Win%</p></th>
+<th class="head"><p>P(B $\cap$ A)</p></th>
+<th class="head"><p>Win%</p></th>
 </tr></thead>
 <tbody>
 <tr>
-<td><p>four five six</p></td>
-<td><p>1 - 2/6</p></td>
+<td><p>⚀ ⚁ ⚂ ⚃</p></td>
+<td><p>⚃ ⚄ ⚅</p></td>
+<td><p>4/6</p></td>
 <td><p>3/6</p></td>
 <td><p>12/36</p></td>
 <td><p>0.333</p></td>
 </tr>
 <tr>
-<td><p>three</p></td>
+<td><p>⚃</p></td>
+<td><p>⚂</p></td>
 <td><p>1/6</p></td>
 <td><p>1/6</p></td>
 <td><p>1/36</p></td>
@@ -253,25 +281,131 @@ Second, Jane Seymour (the second queen) gets +1 added to her roll since she was 
 <tr>
 <td colspan="3"><p>Total</p></td>
 <td><p>13/36</p></td>
+<td><p>13/36</p></td>
 <td><p>0.361</p></td>
 </tr>
 </tbody>
 </table>
-<p>To sum these probabilities it is easiest to think of the 36-element sample space of two dice.
-Thus, the probability of winning on the second roll $P(2) = (4 + 4 + 4 + 1)/36 = 0.36$.</p>
-<p>Roll 2 is an application of the conditional probality formalism,
-which says the probability of event B given that event A has occured is
-$$P(B|A) = \frac{P(B \cap A)}{P(A)}$$
-where $P(A) &gt; 0$, and $P(B|A)$ is read "the probability of B given A."
-Rearranging yields
-$$P(B \cap A) = P(A) P(B|A).$$
-To gain some intuition, let's apply this formalism to Roll 2.
-The first term, $P(A)$ is the probability of <em>getting to Roll 2</em>; that is, not having won
-on previous rolls: $P(A) = 1 - P(\text{winning}) =1 - 2/6 = 0.67$.</p>
-<p>The second term, $P(B|A)$ is the probability of winning <em>on Roll 2</em>. As outlined above,
-this can happen four independent ways; each can be viewed as the probability of getting
-to Roll 2 times the probability of winning on Roll 2.</p>
+<p>For simplicity, let's first calculate our probabilities without the Jane Seymore rule.
+There are three ways to win on Roll 2:</p>
+<ul class="simple">
+<li><p>Roll 1 is ⚀ - ⚃ and Roll 2 is ⚅</p></li>
+<li><p>Roll 1 is ⚀ - ⚃ and Roll 2 is ⚄</p></li>
+<li><p>Roll 1 is ⚃ and Roll 2 is ⚃.</p></li>
+</ul>
+<p>However, thanks to +1 conferred by Jane Seymore the following paths all lead to a win:</p>
+<ul class="simple">
+<li><p>Roll 1 is ⚀ - ⚃ and Roll 2 is ⚅</p></li>
+<li><p>Roll 1 is ⚀ - ⚃ and Roll 2 is ⚄</p></li>
+<li><p>Roll 1 is ⚀ - ⚃ and Roll 2 is ⚃</p></li>
+<li><p>Roll 1 is ⚃ and Roll 2 is ⚂.</p></li>
+</ul>
+<p>We compress the first three bullets into the first row of Table 2,
+and the fourth bullet gets the second row.
+One way of thinking about how to calculate the probability is to
+visualize a grid of the 36-element sample space of two dice.
+There are four ways (prob = 4/6) to get to this row from Roll 1,
+and three ways to win on Roll 2 (prob = 3/6).
+The probability of both these independent events happening is the
+product of these two probabilities: 4/6 * 3/6 = 12/36.</p>
+<table class="float-right table-bordered">
+<caption>The sample space of a pair of dice</caption>
+<colgroup>
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+</colgroup>
+<tbody>
+<tr>
+<td><p>⚀ ⚀</p></td>
+<td><p>⚀ ⚁</p></td>
+<td><p>⚀ ⚂</p></td>
+<td><p>⚀ ⚃</p></td>
+<td><p>⚀ ⚄</p></td>
+<td><p>⚀ ⚅</p></td>
+</tr>
+<tr>
+<td><p>⚁ ⚀</p></td>
+<td><p>⚁ ⚁</p></td>
+<td><p>⚁ ⚂</p></td>
+<td><p>⚁ ⚃</p></td>
+<td><p>⚁ ⚄</p></td>
+<td><p>⚁ ⚅</p></td>
+</tr>
+<tr>
+<td><p>⚂ ⚀</p></td>
+<td><p>⚂ ⚁</p></td>
+<td><p>⚂ ⚂</p></td>
+<td><p>⚂ ⚃</p></td>
+<td><p>⚂ ⚄</p></td>
+<td><p>⚂ ⚅</p></td>
+</tr>
+<tr>
+<td><p>⚃ ⚀</p></td>
+<td><p>⚃ ⚁</p></td>
+<td><p>⚃ ⚂</p></td>
+<td><p>⚃ ⚃</p></td>
+<td><p>⚃ ⚄</p></td>
+<td><p>⚃ ⚅</p></td>
+</tr>
+<tr>
+<td><p>⚄ ⚀</p></td>
+<td><p>⚄ ⚁</p></td>
+<td><p>⚄ ⚂</p></td>
+<td><p>⚄ ⚃</p></td>
+<td><p>⚄ ⚄</p></td>
+<td><p>⚄ ⚅</p></td>
+</tr>
+<tr>
+<td><p>⚅ ⚀</p></td>
+<td><p>⚅ ⚁</p></td>
+<td><p>⚅ ⚂</p></td>
+<td><p>⚅ ⚃</p></td>
+<td><p>⚅ ⚄</p></td>
+<td><p>⚅ ⚅</p></td>
+</tr>
+</tbody>
+</table>
+<p>The second row of Table 2 is much more rare; only one of the
+36 sample points corresponding to this event.
+Calculating the probability of row 2 is done by recognizing that one out of 36 corresponds to 1/36,
+or multiplyting the probability of the independent events: P(⚃) * P(⚂) = 1/6 * 1/6 = 1/36.</p>
+<p>The probability of winning on the second roll is the combination of these two disjoint events.
+$P(2) = (12 + 1)/36 = 0.361$.</p>
+<p>Being able to visualize the entire sample space is intuitive, but as things get more complicated,
+we need to develop the conditional probability formalism to deal with these doubles rule.</p>
+</div>
+<div class="section" id="conditional-probability">
+<h3>Conditional Probability</h3>
+<p>Let's take a moment to learn about conditional probability of event B given that event A has occured
+$$
+P(B|A) = \frac{P(B \cap A)}{P(A)}
+$$
+where $P(B|A)$ is read "the probability of B given A," and $P(B \cap A)$ <a class="footnote-reference brackets" href="conditional-probability-henry-viii.html#id4" id="id2">2</a> is the probability that
+both A and B have occured. Rearranging yields
+$$
+P(B \cap A) = P(A) P(B|A).
+$$</p>
+<p>Let's apply this formalism to Roll 2
+$$
+P(E_2) = P(E_2 \cap !E_1) = P(E_2) P(!E_1) = P(E_2) \big(1 - P(E_1)\big)
+$$
+The probability of winning on Roll 2 is the probability of winning at Roll 2 <em>and</em> we did not
+win Roll 1. This is not having won Roll 1: $P(!E_1) = 1 - P(E_1) = 1 - 2/6 = 0.667$.</p>
+<p>The second term, $P(E_2|!E_1)$ is the probability of winning <em>on Roll 2</em>
+given that we didn't win roll 1. As outlined above, this can happen four independent ways;
+each can be viewed as the probability of getting to Roll 2 times the probability of winning on Roll 2.</p>
 <p>The coulumn $P(A)$ in each table is the probability of getting to this roll's win.</p>
+<p>For each roll, let event B represent success on this roll and let event A represent
+the probability of getting to this roll; that is, not having won on any of the previous rolls.
+The probability of getting to the next roll is the probability of not winning this roll:
+$$
+P(\text{get to next}) = P(\text{not win this roll}) = 1 - P(\text{win|got to this roll})
+$$
+On Roll 2, we are going to unpack the conditional probability formula.</p>
 </div>
 <div class="section" id="roll-3">
 <h3>Roll 3</h3>
@@ -394,6 +528,16 @@ The only way of getting triple threes is rolling: 3, 2+1, and 3.</p>
 <li><p>All but one of the previous rolls were a 3 AND Roll 4 is a 3</p></li>
 <li><p>Rolls 1-4 are 2s</p></li>
 </ul></dd>
+</dl>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="conditional-probability-henry-viii.html#id1">1</a></span></dt>
+<dd>
+<p>This is included for continuity between the tables.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="conditional-probability-henry-viii.html#id2">2</a></span></dt>
+<dd>
+<p>$A \cap B$ is read, "the intersection of A and B."It means the elements which are common to both sets.</p>
+</dd>
 </dl>
 </div>
 </div>

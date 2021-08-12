@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="cumulative_dist.R">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cumulative_dist.R | Applied Stats</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://nickvence.github.io/listings/cumulative_dist.R.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="../posts/index.html" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="../galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="../about.html" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="cumulative_dist.R" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href=".">listings</a></li>
+                <li class="breadcrumb-item active">cumulative_dist.R</li>
+</ul></nav><h1>cumulative_dist.R
+        <small><a href="cumulative_dist.R">(Source)</a></small>
+    </h1>
+    <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-1" name="listingscumulative_distr-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-2" name="listingscumulative_distr-2"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-3" name="listingscumulative_distr-3"></a><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">0</span><span class="o">:</span><span class="m">20</span>          <span class="c1">#Domain</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-4" name="listingscumulative_distr-4"></a><span class="n">dy</span> <span class="o">&lt;-</span> <span class="nf">dgeom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">.</span><span class="m">1</span><span class="p">)</span> <span class="c1">#Probability density</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-5" name="listingscumulative_distr-5"></a><span class="n">py</span> <span class="o">&lt;-</span> <span class="nf">pgeom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">.</span><span class="m">1</span><span class="p">)</span> <span class="c1">#Cumulative probability distribution</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-6" name="listingscumulative_distr-6"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-7" name="listingscumulative_distr-7"></a><span class="nf">tibble</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">py</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-8" name="listingscumulative_distr-8"></a><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-9" name="listingscumulative_distr-9"></a>  <span class="nf">geom_col</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">py</span><span class="p">),</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">"grey60"</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-10" name="listingscumulative_distr-10"></a>  <span class="nf">geom_col</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">dy</span><span class="p">),</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">"grey40"</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-11" name="listingscumulative_distr-11"></a>  <span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-12" name="listingscumulative_distr-12"></a>  <span class="nf">geom_hline</span><span class="p">(</span><span class="n">yintercept</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"red"</span><span class="p">,</span> <span class="n">linetype</span> <span class="o">=</span> <span class="s">"dashed"</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-13" name="listingscumulative_distr-13"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">"Cumulative Probability (and probability density)"</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-14" name="listingscumulative_distr-14"></a>  <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span> <span class="o">+</span> <span class="c1">#Centering title</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscumulative_distr-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a id="listingscumulative_distr-15" name="listingscumulative_distr-15"></a>  <span class="nf">ggsave</span><span class="p">(</span><span class="s">"cumulative_dist.png"</span><span class="p">)</span>
+</code></td>
+</tr>
+</table></div>
+
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

@@ -33,10 +33,16 @@ bg-dark
         <div class="collapse navbar-collapse" id="bs-navbar">
             <ul class="navbar-nav mr-auto">
 <li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
 <a href="#" class="nav-link">Blog</a>
                 </li>
 <li class="nav-item">
-<a href="../research.html" class="nav-link">Research</a>
+<a href="../galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="../about.html" class="nav-link">About</a>
                 </li>
 <li class="nav-item">
 <a href="../categories/index.html" class="nav-link">Tags</a>
@@ -61,7 +67,339 @@ bg-dark
 
     
 <div class="postindex">
-    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="nikola-testdrive.html" class="u-url">Nikola testdrive</a></h1>
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="comparing-distributions.html" class="u-url">Comparing distributions</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Nicholas Vence
+            </span></p>
+            <p class="dateline">
+            <a href="comparing-distributions.html" rel="bookmark">
+            <time class="published dt-published" datetime="2021-07-16T12:33:44-04:00" itemprop="datePublished" title="2021-07-16">2021-07-16</time></a>
+            </p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<div class="sidebar">
+<p class="sidebar-title">Diabetes biometrics</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Glycated_hemoglobin">Hemoglobin A1c</a> (HbA1c) is the standard biometric used to quantify the severity
+of diabetes. It measures the fraction of red blood cells that have glucose
+adsorbed. HbA1c can get worse quickly as more suger clings to the
+hemoglobin; however, for HbA1c to get better, one must wait for the
+affected blood cells to die and be replaced by better values.  HbA1c is
+too insensitive for a 12 week intervention.</p>
+<p>Two <a class="reference external" href="https://en.wikipedia.org/wiki/Homeostasis">homeostatic</a> (steady-state internal conditions) alternatives provide
+a more responsive diabetes biometric measuring digestive function as a
+percentage of a healthy adult.
+HOMA-Beta is a homeostatic measure of pancreatic beta cell function, and
+HOMA-IR is a homeostatic measure of insulin resistance calculated
+from fasting blood glucose and either blood insulin or C-peptide.
+These biometrics are much more sensitve than HbA1c for they dynamically track
+pancreatic and liver function.</p>
+<p>We use HOMA-IR as our primary outcome to quantify diabetic severity.</p>
+<p>Systolic and diastolic blood pressure (sBP and dBP) and weight were
+secondary outcomes</p>
+</div>
+<div class="section" id="background">
+<h3>Background</h3>
+<p>I'm involved in a 12 week, randomized control trial determining the
+effectiveness of phone coaching on low-income diabetics.
+One of our physician-advisors had difficulty understanding the following
+figure which visualizes the range or our outcome variables.</p>
+<div class="figure" style="width: 600px">
+<img alt="Range of outcome variables." class="float-left" src="../files/pctChg_Outcomes_IQR.png" style="width: 600px;"><p class="caption"><strong>Figure 1</strong> The median of the percent change (from baseline)
+of the outcome variables is marked by a point while the first
+and third quartiles are visualized by verticle lines.</p>
+</div>
+<p>Our published physician wrote the following upon reviewing our manuscript:</p>
+<div class="admonition admonition-physician-s-critique">
+<p class="admonition-title">Physician's Critique</p>
+<p>[I've] never seen quartiles shown as lines on such a graph before...
+what is the utility? many or most readers will be confused.
+Why show 1st &amp; 3rd quartiles instead of 1st &amp; 4th?
+The p-values do not seem to correspond to the data shown,
+but it is not clear to me whether the error bars are the range for the
+quartiles or not, and what the mean or median for each quartile shown is.</p>
+</div>
+<div class="sidebar">
+<p class="sidebar-title">Randomized Control Trial</p>
+<p>In a randomized control trial, researchers hope their treatment
+(phone coaching in our case) will confer some benefit on the participants.
+This benefit is measured by an outcome variable.
+If one of our outcome variables had a significantly different distribution
+between the control and intervention group, we could claim that since the
+only difference between the two groups was the presence of phone coaching,
+phone coaching must be the cause of this difference.</p>
+<p>When designing a randomized control trial, one must specify the primary
+outcome at the beginning. Since we are interested in helping diabetics,
+we chose an a measure of insulin resistance as our primary outcome.
+However, if phone coaching also lead to weight loss, we would certainly
+report it.</p>
+</div>
+<p>While <em>I</em> think this figure is clear, the customer is always right.
+My job is to communicate these distributions
+our audience (physicians) as clearly as possible.</p>
+<p>The following tour showcases different visualization options to
+understand the pros and cons of comparing the range of several continuous
+variables between groups.</p>
+<table class="m-4 table-striped float-right">
+<caption>
+<strong>Table 1</strong> The following robust statistics do not change
+significantly when outliers are added to a distribution.
+For example, including Bill Gates into a small sample of incomes will
+change the maximum a lot, but it will have a little to no effect on the
+other quartiles.</caption>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 32%">
+<col style="width: 60%">
+</colgroup>
+<tbody>
+<tr>
+<td><p>Q0</p></td>
+<td><p>zeroth quartile</p></td>
+<td><p>0th percentile    (aka minimum value)</p></td>
+</tr>
+<tr>
+<td><p>Q1</p></td>
+<td><p>first quartile</p></td>
+<td><p>25th percentile</p></td>
+</tr>
+<tr>
+<td><p>Q2</p></td>
+<td><p>second quartile</p></td>
+<td><p>50th percentile (aka median)</p></td>
+</tr>
+<tr>
+<td><p>Q3</p></td>
+<td><p>third quartile</p></td>
+<td><p>75th percentile</p></td>
+</tr>
+<tr>
+<td><p>Q4</p></td>
+<td><p>fourth quartile</p></td>
+<td><p>100th percentile (aka maximum value)</p></td>
+</tr>
+<tr>
+<td><p>IQR</p></td>
+<td><p>Interquartile range</p></td>
+<td><p>IQR = Q3 - Q1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-tour">
+<h3>The tour</h3>
+<p>Our primary outcome, ΔHOMA-IR, is a slightly <strong>asymmetrical distribution</strong>
+with <strong>outliers</strong>. The outliers come from patients with advanced-stage
+diabetes who are in various stages of organ failure.
+Unless explicitly stated otherwise, our discussion below
+will refering to the primary outcome: ΔHOMA-IR.</p>
+<div class="section" id="interquartile-range">
+<h4>Interquartile Range</h4>
+<p>Robust statistics (the median and interquartile range) describe the inner
+half of the distribution; the exclusion of the outliers is acceptable because
+we are interested in how normal (not advanced-stage) diabetics are affected.
+Notice the distributions' small dispersion; it is easy to see they are
+different.  We also see a left-skew in the control group.</p>
+<p>It is unfortunate that this set of outcome variables have such a wide range of
+dispersions, for it is difficult to see the narrow range of the weight
+distribution.</p>
+</div>
+<div class="section" id="raw-data-and-outliers">
+<h4>Raw data and outliers</h4>
+<div class="figure align-right" style="width: 600px">
+<img alt="Outcome data: control vs intervention group" src="../files/pctChg_Outcomes_points.png" style="width: 600px;"><p class="caption"><strong>Figure 2</strong> A comparison of the outcome data between the
+control and intervention groups.</p>
+</div>
+<p>When choosing a visualization, there is no substitute for looking at the
+individual data points.  First, I notice the outliers (see Table 2).
+They will inflate the standard deviation and potentially skew
+(add asymmetry to) the distribution.
+Next, I see that the intervention group is clustered by zero,
+while the control group is more spread out. These distributions
+<em>look</em> a little different. The secondary outcome variables
+look the same; that is, they look like side-by-side clouds with
+more or less the same center and width.</p>
+<table class="float-right m-4 table-striped">
+<caption>
+<strong>Table 2</strong> Intereting outliers</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 22%">
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 14%">
+<col style="width: 18%">
+</colgroup>
+<thead><tr>
+<th class="head"><p>ID</p></th>
+<th class="head"><p>Variable</p></th>
+<th class="head"><p>Percent</p></th>
+<th class="head"><p>Diff</p></th>
+<th class="head"><p>Final</p></th>
+<th class="head"><p>Initial</p></th>
+</tr></thead>
+<tbody>
+<tr>
+<td><p>22</p></td>
+<td><p>HOMA-IR</p></td>
+<td><p>+340%</p></td>
+<td><p>+2.27</p></td>
+<td><p>2.95</p></td>
+<td><p>0.68</p></td>
+</tr>
+<tr>
+<td><p>25</p></td>
+<td><p>HOMA-Beta</p></td>
+<td><p>+240%</p></td>
+<td><p>+78</p></td>
+<td><p>111</p></td>
+<td><p>33</p></td>
+</tr>
+<tr>
+<td><p>33</p></td>
+<td><p>HbA1c</p></td>
+<td><p>-66%</p></td>
+<td><p>+4.6</p></td>
+<td><p>7.0</p></td>
+<td><p>11.6</p></td>
+</tr>
+<tr>
+<td><p>97</p></td>
+<td><p>Weight</p></td>
+<td><p>-37%</p></td>
+<td><p>-43 kg</p></td>
+<td><p>70 kg</p></td>
+<td><p>117 kg</p></td>
+</tr>
+<tr>
+<td><p>7</p></td>
+<td><p>Weight</p></td>
+<td><p>-11%</p></td>
+<td><p>-14</p></td>
+<td><p>113</p></td>
+<td><p>127</p></td>
+</tr>
+</tbody>
+</table>
+<p>While looking at the raw data is a great way to compare the two
+distributions, p-values answer the question of statistical
+significance. At the study's outset the researcher determines the
+level of significance (usually 0.05), which is the probability
+that a random selection of points might give a result at least this different
+from the initial distribution. Choosing a smaller signficance level makes
+statistical significance harder to achieve, but squelches statistical flukes
+from falsely claiming to be significant.</p>
+<p>Quantitatively determining if two distributions are different is usually done with
+the independent t-test.  However, in this study we wanted to control
+for potential confounding factors (race, years of diabetes, income,
+food access, and psychological stage of change); we used a multivariate
+linear model and analyzed the p-value of Group (Intervention vs Control).</p>
+<p>Our advisor said, "the p-values don't seem to correspond to the data shown."
+In his defense, he only saw the median and IQR. Let's look at the actual
+data points in Fig. 3 beginning with the distribution with the largest p-value:
+diastolic Blood Presure (dBP). The data look like two identical side-by-side
+clouds; this is different from the distribution in Fig. 1 where each
+distribution appears to have a different skew. This apparent skew
+is an artifact (non-realistic feature) that comes from excluding outliers.
+For HOMA-Beta (p = .8), the difference between Fig. 1 and Fig. 3 is drastic:
+dropping the outliers seems to skew the data in opposite directions. The data
+points in Fig. 3 seem to have a similar center.  Perhaps, HbA1c and Weight
+would have a larger p-value were it not for the single outlier. Finally,
+looking at HOMA-IR, it is easy to see that the intervention
+group has significantly more points clustered around zero. This is really
+exactly what we were hoping: we wanted a statistically significant difference
+in the distribution of our primary outcome. The small p-value (0.027) reflects
+the fact that it is 97% likely that these numbers did not come from the same
+distribution. There is 97% that phone coaching caused the distribution of the
+intervention group's insulin resistance to be different than the distribution
+of the control group's insulin resistance.  Therefore, phone coaching must work
+at lowering diabetic's insulin resistance, which means our study is a success!</p>
+<p>At first glance, each pair of outcomes seems to come from the same
+distribution; however, several outliers (see Table 2) deserve some
+attention. The HOMA variables have the largest dispersion, for
+they depend on several factors: subject health, other body</p>
+</div>
+<div class="section" id="mean-and-standard-deviation">
+<h4>Mean and Standard Deviation</h4>
+<div class="figure align-right" style="width: 600px">
+<img alt="Outcome variables plotted by mean and standard deviation" src="../files/pctChg_Outcomes_sd.png"><p class="caption"><strong>Figure 3</strong> Distribution of the percent change in each primary and
+secondary outcome variable: the mean is marked by a point, and the
+verticle line marks one standard deviation.</p>
+</div>
+<p>The mean and standard deviation (SD) are not robust statistics; that is,
+they are highly influenced by outliers.
+The control group’s mean (Fig 3) is about 2x larger than the median (Fig 1).
+Similarly, the SD of the control group is about 4x larger than of the
+intervention group (Fig 3). When looking at the actual data in Fig 2, however,
+the spread while of the control group, while slightly larger, is primarily
+driven by the outlier: a single data point. Should we trust this point as valid?
+After all, an outlier in the wieght reported 38% weight loss in 15 weeks.
+It is time to get some domain knowledge.</p>
+<p>After showing this outlier to our physician-PI (principle investigator),
+she said an HOMA-IR significantly less than 1.0 (see the first row of Table 2)
+is a sign of organ failure which is common in advanced stages of diabetes.
+Wow.  This is the perfect reason to exclude outliers. People with organ failure
+should not be influencing our distribution!</p>
+<div class="figure align-right" style="width: 600px">
+<img alt="Outcome variables plotted by mean and standard deviation" src="../files/pctChg_Outcomes_violin.png" style="width: 600px;"><p class="caption"><strong>Figure 4</strong> A violin plot of the distribution of the percent change in each
+primary and secondary outcome variable.</p>
+</div>
+<p>Since medical knowledge tells us to exclude outliers from our distrbution,
+the mean and SD are the wrong statistics.</p>
+</div>
+<div class="section" id="violin-plot">
+<h4>Violin Plot</h4>
+<p>The violin plot shows the distribution's density as an horizontal displacement
+from the center.  It usually does an great job comparing distributions; however,
+in this case the are such a range of distributions that the most disperse seem to
+have no width becoming a vertical line, and the most compact are nearly a horizontal
+line.</p>
+</div>
+<div class="section" id="box-plot">
+<h4>Box Plot</h4>
+<div class="figure align-right" style="width: 600px">
+<img alt="Outcome variables plotted by mean and standard deviation" src="../files/pctChg_Outcomes_boxplot.png" style="width: 600px;"><p class="caption"><strong>Figure 5</strong> A box plot of the distribution of the percent change in each
+primary and secondary outcome variable.</p>
+</div>
+<p>While the violin plot is aesthetically appealing, it lacks a certain rigor.
+<a class="reference external" href="https://en.wikipedia.org/wiki/John_Tukey">John Tukey</a> pioneered the box plot which standardizes a distribution using
+quantiles (robust statistics). The box extends from the Q1 up to Q3 and has
+the median marked with a bold line. The height of the box is the interquartile
+range (IQR), and any skew is visible the upper and lower half of the box is a
+differnt size.
+Vertical bars extend up to either the distribution's edge or 1.5 IQR, and any points
+beyond 1.5 IQR are considered outliers and plotted individually.</p>
+<p>Since our study is focusing on the main distribution, we choose to drop the outliers
+as a more succinct visualization that doesn't invite criticism of the outliers.</p>
+<div class="figure align-right" style="width: 600px">
+<img alt="Outcome variables plotted by mean and standard deviation" src="../files/pctChg_Outcomes_boxplot_noOutlier.png" style="width: 600px;"><p class="caption"><strong>Figure 6</strong> A box plot (without outliers) of the distribution of the
+percent change in each primary and secondary outcome variable.</p>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h4>Conclusion</h4>
+<p>One purpose of a visualization is to present a visual aggregate of the data.
+Each of the first three figures has some artifact (an artificial defect that
+doesn't match the original distribution). The artifact from the robust
+statistics (see Fig. 1) is a false skew that occured upon removing the outer
+half of the points from relatively small sample.</p>
+<p>It seems that plotting the raw data would be the most honest, yet overplotting
+hides the true shape of the data.
+Jittering randomly displaces the x coordinate, but the randomness isn't uniform
+and often distorts or hides the distribution.
+Adding a translucence (not done) to each point is a method of revealing
+hidden points.</p>
+<p>The artifact of the mean and SD in a distribution with outliers is a systematic
+bias skewing the mean and inflating the SD.</p>
+<p>Adding a jitter and
+increasing the transluscence of each point will partially restore the
+misperception that occurs when viewing raw data.</p>
+</div>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="nikola-testdrive.html" class="u-url">Nikola testdrive</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Nicholas Vence
@@ -84,63 +422,23 @@ I want to do the following:</p>
 <li><p>Insert code from file</p></li>
 <li><p>Use directives</p></li>
 </ul>
-<p>Monthly COVID deaths are compared to previous year's mortality;
-the <a class="reference external" href="http://data.cdc.gov/NCHS/Weekly-Counts-of-Death-by-State-and-Select-Causes/muzy-jte6">CDC</a> data was taken mid-November, 2020.</p>
-<img alt="/files/bar_chart.png" src="../files/bar_chart.png"><pre class="code R"><a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-2"></a><span class="nf">library</span><span class="p">(</span><span class="n">magrittr</span><span class="p">)</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-3"></a><span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">)</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-4"></a><span class="nf">library</span><span class="p">(</span><span class="n">RColorBrewer</span><span class="p">)</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-5"></a><span class="c1">## Import Data</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-6"></a><span class="c1">## 2019 - 2020</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-7"></a><span class="n">d20a</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">"/Users/nvence/prog/COVID-19/data_CDC/Weekly_Counts_of_Deaths_by_Select_Causes__2019-2020.csv"</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-8"></a>  <span class="nf">transmute</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="nf">as_date</span><span class="p">(</span><span class="n">`Week Ending Date`</span><span class="p">),</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-9"></a>            <span class="n">covid</span> <span class="o">=</span> <span class="n">`COVID-19 (U071, Underlying Cause of Death)`</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-10"></a>            <span class="n">cancer</span> <span class="o">=</span> <span class="n">`Malignant neoplasms (C00-C97)`</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-11"></a>            <span class="n">influenza_pneumonia</span> <span class="o">=</span> <span class="n">`Influenza and pneumonia (J09-J18)`</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-12"></a>            <span class="n">respiritory_other</span> <span class="o">=</span> <span class="n">`Chronic lower respiratory diseases (J40-J47)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-13"></a>                                <span class="n">`Other diseases of respiratory system (J00-J06,J30-J39,J67,J70-J98)`</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-14"></a>            <span class="n">cardiovascular</span> <span class="o">=</span> <span class="n">`Diseases of heart (I00-I09,I11,I13,I20-I51)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-15"></a>                             <span class="n">`Cerebrovascular diseases (I60-I69)`</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-16"></a>            <span class="n">other</span> <span class="o">=</span> <span class="n">`Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified (R00-R99)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-17"></a>                    <span class="n">`Nephritis, nephrotic syndrome and nephrosis (N00-N07,N17-N19,N25-N27)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-18"></a>                    <span class="n">`Septicemia (A40-A41)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-19"></a>                    <span class="n">`Alzheimer disease (G30)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-20"></a>                    <span class="n">`Diabetes mellitus (E10-E14)`</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-21"></a>  <span class="c1">## Change time resolution: month</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-22"></a>  <span class="nf">mutate</span><span class="p">(</span><span class="n">year</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="nf">year</span><span class="p">(</span><span class="n">date</span><span class="p">)),</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-23"></a>         <span class="n">month</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="nf">month</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)))</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-24"></a>  <span class="nf">select</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">covid</span><span class="o">:</span><span class="n">other</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-25"></a>  <span class="nf">group_by</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="n">month</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-26"></a>  <span class="nf">summarise_all</span><span class="p">(</span><span class="n">sum</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="c1">#sum over weeks</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-27"></a>  <span class="nf">ungroup</span><span class="p">()</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-28"></a>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-29"></a><span class="c1">### FIGURE 1 ###</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-30"></a><span class="c1">## Format Data</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-31"></a><span class="n">d20b</span> <span class="o">&lt;-</span> <span class="n">d20a</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-32"></a>  <span class="nf">pivot_longer</span><span class="p">(</span><span class="n">covid</span><span class="o">:</span><span class="n">other</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-33"></a>               <span class="n">names_to</span> <span class="o">=</span> <span class="s">"cause"</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-34"></a>               <span class="n">values_to</span> <span class="o">=</span> <span class="s">"deaths"</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-35"></a>               <span class="n">names_transform</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-36"></a>                   <span class="n">cause</span> <span class="o">=</span> <span class="o">~</span> <span class="n">readr</span><span class="o">::</span><span class="nf">parse_factor</span><span class="p">(</span><span class="n">.x</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-37"></a>                       <span class="n">levels</span> <span class="o">=</span> <span class="nf">rev</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">"cardiovascular"</span><span class="p">,</span> <span class="s">"cancer"</span><span class="p">,</span> <span class="s">"other"</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-38"></a>                                      <span class="s">"respiritory_other"</span><span class="p">,</span> <span class="s">"influenza_pneumonia"</span><span class="p">,</span> <span class="s">"covid"</span><span class="p">)),</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-39"></a>                       <span class="n">ordered</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-40"></a>                 <span class="p">))</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-41"></a>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-42"></a><span class="c1">## Bar Chart</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-43"></a><span class="nf">ggplot</span><span class="p">(</span><span class="n">d20b</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">year</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">deaths</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">cause</span><span class="p">))</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-44"></a>  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">"identity"</span><span class="p">)</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-45"></a>  <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">month</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">strip.position</span><span class="o">=</span><span class="s">"bottom"</span><span class="p">)</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-46"></a>  <span class="nf">scale_fill_brewer</span><span class="p">(</span> <span class="n">palette</span> <span class="o">=</span> <span class="s">"Set1"</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="m">-1</span><span class="p">)</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-47"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">caption</span> <span class="o">=</span> <span class="s">"data.cdc.gov/NCHS/Weekly-Counts-of-Death-by-State-and-Select-Causes/muzy-jte6"</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-48"></a>       <span class="n">title</span> <span class="o">=</span> <span class="s">"Deaths vs Time"</span><span class="p">)</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-49"></a>  <span class="nf">theme_void</span><span class="p">()</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-50"></a>  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">90</span><span class="p">),</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-51"></a>        <span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-52"></a>  <span class="nf">ggsave</span><span class="p">(</span><span class="s">"/Users/nvence/prog/COVID-19/data_CDC/bar_chart.png"</span><span class="p">)</span>
+<img alt="/files/Example_Figure.png" src="../files/Example_Figure.png"><pre class="code R"><a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-2"></a><span class="c1">#Example Figure</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-3"></a>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-4"></a><span class="n">rate</span> <span class="o">&lt;-</span> <span class="n">.</span><span class="m">5</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-5"></a><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span><span class="n">decay</span> <span class="o">=</span> <span class="nf">rexp</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="n">rate</span><span class="p">))</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-6"></a>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-7"></a><span class="n">p1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">decay</span><span class="p">))</span> <span class="o">+</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-8"></a>  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="m">0</span><span class="o">:</span><span class="m">8</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-9"></a>  <span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="m">0</span><span class="o">:</span><span class="m">8</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-10"></a>  <span class="nf">geom_function</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">rlang</span><span class="o">::</span><span class="nf">as_function</span><span class="p">(</span><span class="o">~</span> <span class="m">100</span> <span class="o">*</span> <span class="nf">dexp</span><span class="p">(</span><span class="n">.x</span><span class="p">,</span> <span class="n">rate</span><span class="p">)),</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"red"</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-11"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-12"></a>  <span class="nf">theme_bw</span><span class="p">()</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-13"></a>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-14"></a><span class="nf">ggsave</span><span class="p">(</span><span class="s">"Example_Figure.png"</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span>
 </pre>
-<div class="admonition attention">
-<p class="admonition-title">Attention!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The <strong>image</strong> directive <em>requires</em> the left-most
 <code>/</code> in its path, while the <strong>include</strong> directive
 <em>can not have</em> the left-most <code>/</code> in the path</p>

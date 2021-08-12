@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pages tagged machine learning | Applied Stats</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://nickvence.github.io/tagged_pages/machine-learning.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="../posts/index.html" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="../galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="../about.html" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+
+    <header><h1>Pages tagged machine learning</h1>
+        <div class="metadata">
+            
+
+            
+
+        </div>
+    </header><div class="postindex">
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="../predicting-cell-phase.html" class="u-url">Predicting Cell Phase</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Nicholas Vence
+            </span></p>
+            <p class="dateline">
+            <a href="../predicting-cell-phase.html" rel="bookmark">
+            <time class="published dt-published" datetime="2021-01-04T17:09:34-05:00" itemprop="datePublished" title="2021-01-04">2021-01-04</time></a>
+            </p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<div class="figure align-center">
+<img alt="Confocal microscope of the c elegans worm" src="../files/celegans.jpg"><p class="caption"><strong>Fig. 1</strong> The end of a  <em>C. elegans</em> worm as seen by confocal microscope.
+The stem cells have been stained red. Different reagents bind and highlight
+the DNA shape can which can be used to predict the cell phase.
+The large green blob on the left is the distal tip cell, which
+generates the stem cells that flow down the worm differentiating into
+their various roles.</p>
+</div>
+<p>Add computer vision</p>
+<p>Stem cells are interesting because they can divide and specialize.
+Control of stem cell development holds the promise of engineering new organs.
+While the use of human stem cells in research is fraught with ethical complications,
+<em>`C. elegans`_</em> worms are small, translucent and have a short life span
+making them ideal models for studying stem cells.
+Confocal microscopes and DNA staining let us create 3D images of their DNA
+similar to that in Fig. 1.</p>
+<p>An animal cell cycles through four stages of development: growth (G1),
+synthesize new DNA (S), more growth (G2), and splitting or mitosis (M).
+Staining applies a reagent doped with a fluorescent molecule that binds to a desired target.
+It is possible to determine which cells are in a certain phase by
+staining them with the corresponding reagent; unfortunately, using multiple stains
+causes complications.</p>
+<p><strong>The goal of this project</strong> is to use the DNA shape to classify the cell's phase.</p>
+<p>The procedure:</p>
+<ul class="simple">
+<li><p>Stain cell DNA and one phase.</p></li>
+<li><p>Image worms using a <a class="reference external" href="http://toutestquantique.fr/en/fluorescent-and-confocal/">confocal microscope</a>.</p></li>
+<li><p>Segment the image into individual cells.</p></li>
+<li><p>Run a variety of image processing filters on the microscopy image to create a feature vector.</p></li>
+<li><p>Partition data into training, validation, and test sets.</p></li>
+<li><p>Train a support vector machine on the training set.</p></li>
+<li><p>Optimize parameters on the validation set.</p></li>
+<li><p>Test its accuracy on the test set.</p></li>
+</ul>
+<p>The code I inherited was a case study in poor programming practices:</p>
+<ul class="simple">
+<li><p>No documentation</p></li>
+<li><p>Inconsistent indentation</p></li>
+<li><p>Significant code redundancy</p></li>
+<li><p>Fragile: changing the database selection criteria required modifying nearly every file in the project.</p></li>
+<li><p>Matlab was a poor choice of languages for an image database and supervised learning algorithm.</p></li>
+<li><p>Database key uniqueness issues</p></li>
+</ul>
+<p>During my limited time on the project, I made the following improvements:</p>
+<ul class="simple">
+<li><p>Created a git repository</p></li>
+<li><p>Improved the directory structure: source code, data, documentation</p></li>
+<li><p>Refactored the code to remove redundancy</p></li>
+<li><p>Reindexed the database to accomodate project growth</p></li>
+<li><p>Wrote a documenttion for future users</p></li>
+<li><p>Improved prediction accuracy from 85% to 90%</p></li>
+</ul>
+</div>
+    </div>
+    </article>
+</div>
+
+
+
+
+
+
+
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

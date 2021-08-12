@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pages tagged probability | Applied Stats</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://nickvence.github.io/tagged_pages/probability.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="../posts/index.html" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="../galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="../about.html" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+
+    <header><h1>Pages tagged probability</h1>
+        <div class="metadata">
+            
+
+            
+
+        </div>
+    </header><div class="postindex">
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="../graph01.html" class="u-url">graph01</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Nicholas Vence
+            </span></p>
+            <p class="dateline">
+            <a href="../graph01.html" rel="bookmark">
+            <time class="published dt-published" datetime="2021-07-07T15:28:47-04:00" itemprop="datePublished" title="2021-07-07">2021-07-07</time></a>
+            </p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div class="section" id="probability-distributions">
+<h3>Probability distributions</h3>
+<p>ROUGH DRAFT</p>
+<p>TODO: place equation on chart</p>
+<p>Suppose you have a rare event, e.g. a machine that has a 10% chance of breaking
+each day. The probability that it fails after X days is given by an
+<a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_distribution">exponential distribution</a>.
+This proability density function (pdf) is the proabability per day
+(dark gray).</p>
+<p>$$ f(X) = \lambda e^{-\lambda X} $$</p>
+<p>The probability that it survives X days is given by the <em>cumulative</em>
+probability distribution (gray), which adds up (sums/integrates)
+the probability up to that day, and hence is a monotonically increasing
+function.</p>
+<p>$$ F(X) = \int_0^X f(t) dt = 1 - e^{-\lambda X} $$</p>
+<img alt="/galleries/graph/cumulative_dist.png" src="../galleries/graph/cumulative_dist.png"><pre class="code R"><a name="rest_code_12058cdf5c854fe7a37da449046162b9-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-2"></a>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-3"></a><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">0</span><span class="o">:</span><span class="m">20</span>          <span class="c1">#Domain</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-4"></a><span class="n">dy</span> <span class="o">&lt;-</span> <span class="nf">dgeom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">.</span><span class="m">1</span><span class="p">)</span> <span class="c1">#Probability density</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-5"></a><span class="n">py</span> <span class="o">&lt;-</span> <span class="nf">pgeom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">.</span><span class="m">1</span><span class="p">)</span> <span class="c1">#Cumulative probability distribution</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-6"></a>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-7"></a><span class="nf">tibble</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">py</span><span class="p">)</span> <span class="o">%&gt;%</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-8"></a><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-9"></a>  <span class="nf">geom_col</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">py</span><span class="p">),</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">"grey60"</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-10"></a>  <span class="nf">geom_col</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">dy</span><span class="p">),</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">"grey40"</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-11"></a>  <span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-12"></a>  <span class="nf">geom_hline</span><span class="p">(</span><span class="n">yintercept</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"red"</span><span class="p">,</span> <span class="n">linetype</span> <span class="o">=</span> <span class="s">"dashed"</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-13"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">"Cumulative Probability (and probability density)"</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-14"></a>  <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span> <span class="o">+</span> <span class="c1">#Centering title</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-15"></a>  <span class="nf">ggsave</span><span class="p">(</span><span class="s">"cumulative_dist.png"</span><span class="p">)</span>
+</pre>
+</div>
+    </div>
+    </article>
+</div>
+
+
+
+
+
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script><script>
+                renderMathInElement(document.body,
+                    {
+                        
+delimiters: [
+    {left: "$$", right: "$$", display: true},
+    {left: "\\[", right: "\\]", display: true},
+    {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+    {left: "$", right: "$", display: false},
+    {left: "\\(", right: "\\)", display: false}
+]
+
+                    }
+                );
+            </script><!--End of body content--><footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

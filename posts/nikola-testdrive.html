@@ -10,6 +10,7 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="canonical" href="https://nickvence.github.io/posts/nikola-testdrive.html">
 <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nicholas Vence">
+<link rel="next" href="comparing-distributions.html" title="Comparing distributions" type="text/html">
 <meta property="og:site_name" content="Applied Stats">
 <meta property="og:title" content="Nikola testdrive">
 <meta property="og:url" content="https://nickvence.github.io/posts/nikola-testdrive.html">
@@ -22,7 +23,6 @@ Use hyperlink: CDC.
 Use cross-refference ">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2021-02-01T16:51:24-05:00">
-<meta property="article:tag" content="ICD death-codes">
 <meta property="article:tag" content="nikola">
 <meta property="article:tag" content="R">
 <meta property="article:tag" content="reST">
@@ -49,10 +49,16 @@ bg-dark
         <div class="collapse navbar-collapse" id="bs-navbar">
             <ul class="navbar-nav mr-auto">
 <li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
 <a href="index.html" class="nav-link">Blog</a>
                 </li>
 <li class="nav-item">
-<a href="../research.html" class="nav-link">Research</a>
+<a href="../galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="../about.html" class="nav-link">About</a>
                 </li>
 <li class="nav-item">
 <a href="../categories/index.html" class="nav-link">Tags</a>
@@ -107,63 +113,23 @@ I want to do the following:</p>
 <li><p>Insert code from file</p></li>
 <li><p>Use directives</p></li>
 </ul>
-<p>Monthly COVID deaths are compared to previous year's mortality;
-the <a class="reference external" href="http://data.cdc.gov/NCHS/Weekly-Counts-of-Death-by-State-and-Select-Causes/muzy-jte6">CDC</a> data was taken mid-November, 2020.</p>
-<img alt="/files/bar_chart.png" src="../files/bar_chart.png"><pre class="code R"><a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-2"></a><span class="nf">library</span><span class="p">(</span><span class="n">magrittr</span><span class="p">)</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-3"></a><span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">)</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-4"></a><span class="nf">library</span><span class="p">(</span><span class="n">RColorBrewer</span><span class="p">)</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-5"></a><span class="c1">## Import Data</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-6"></a><span class="c1">## 2019 - 2020</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-7"></a><span class="n">d20a</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">"/Users/nvence/prog/COVID-19/data_CDC/Weekly_Counts_of_Deaths_by_Select_Causes__2019-2020.csv"</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-8"></a>  <span class="nf">transmute</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="nf">as_date</span><span class="p">(</span><span class="n">`Week Ending Date`</span><span class="p">),</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-9"></a>            <span class="n">covid</span> <span class="o">=</span> <span class="n">`COVID-19 (U071, Underlying Cause of Death)`</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-10"></a>            <span class="n">cancer</span> <span class="o">=</span> <span class="n">`Malignant neoplasms (C00-C97)`</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-11"></a>            <span class="n">influenza_pneumonia</span> <span class="o">=</span> <span class="n">`Influenza and pneumonia (J09-J18)`</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-12"></a>            <span class="n">respiritory_other</span> <span class="o">=</span> <span class="n">`Chronic lower respiratory diseases (J40-J47)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-13"></a>                                <span class="n">`Other diseases of respiratory system (J00-J06,J30-J39,J67,J70-J98)`</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-14"></a>            <span class="n">cardiovascular</span> <span class="o">=</span> <span class="n">`Diseases of heart (I00-I09,I11,I13,I20-I51)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-15"></a>                             <span class="n">`Cerebrovascular diseases (I60-I69)`</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-16"></a>            <span class="n">other</span> <span class="o">=</span> <span class="n">`Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified (R00-R99)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-17"></a>                    <span class="n">`Nephritis, nephrotic syndrome and nephrosis (N00-N07,N17-N19,N25-N27)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-18"></a>                    <span class="n">`Septicemia (A40-A41)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-19"></a>                    <span class="n">`Alzheimer disease (G30)`</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-20"></a>                    <span class="n">`Diabetes mellitus (E10-E14)`</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-21"></a>  <span class="c1">## Change time resolution: month</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-22"></a>  <span class="nf">mutate</span><span class="p">(</span><span class="n">year</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="nf">year</span><span class="p">(</span><span class="n">date</span><span class="p">)),</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-23"></a>         <span class="n">month</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="nf">month</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)))</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-24"></a>  <span class="nf">select</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">covid</span><span class="o">:</span><span class="n">other</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-25"></a>  <span class="nf">group_by</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="n">month</span><span class="p">)</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-26"></a>  <span class="nf">summarise_all</span><span class="p">(</span><span class="n">sum</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="c1">#sum over weeks</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-27"></a>  <span class="nf">ungroup</span><span class="p">()</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-28"></a>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-29"></a><span class="c1">### FIGURE 1 ###</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-30"></a><span class="c1">## Format Data</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-31"></a><span class="n">d20b</span> <span class="o">&lt;-</span> <span class="n">d20a</span> <span class="o">%&gt;%</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-32"></a>  <span class="nf">pivot_longer</span><span class="p">(</span><span class="n">covid</span><span class="o">:</span><span class="n">other</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-33"></a>               <span class="n">names_to</span> <span class="o">=</span> <span class="s">"cause"</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-34"></a>               <span class="n">values_to</span> <span class="o">=</span> <span class="s">"deaths"</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-35"></a>               <span class="n">names_transform</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-36"></a>                   <span class="n">cause</span> <span class="o">=</span> <span class="o">~</span> <span class="n">readr</span><span class="o">::</span><span class="nf">parse_factor</span><span class="p">(</span><span class="n">.x</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-37"></a>                       <span class="n">levels</span> <span class="o">=</span> <span class="nf">rev</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">"cardiovascular"</span><span class="p">,</span> <span class="s">"cancer"</span><span class="p">,</span> <span class="s">"other"</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-38"></a>                                      <span class="s">"respiritory_other"</span><span class="p">,</span> <span class="s">"influenza_pneumonia"</span><span class="p">,</span> <span class="s">"covid"</span><span class="p">)),</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-39"></a>                       <span class="n">ordered</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-40"></a>                 <span class="p">))</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-41"></a>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-42"></a><span class="c1">## Bar Chart</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-43"></a><span class="nf">ggplot</span><span class="p">(</span><span class="n">d20b</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">year</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">deaths</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">cause</span><span class="p">))</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-44"></a>  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">"identity"</span><span class="p">)</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-45"></a>  <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">month</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">strip.position</span><span class="o">=</span><span class="s">"bottom"</span><span class="p">)</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-46"></a>  <span class="nf">scale_fill_brewer</span><span class="p">(</span> <span class="n">palette</span> <span class="o">=</span> <span class="s">"Set1"</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="m">-1</span><span class="p">)</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-47"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">caption</span> <span class="o">=</span> <span class="s">"data.cdc.gov/NCHS/Weekly-Counts-of-Death-by-State-and-Select-Causes/muzy-jte6"</span><span class="p">,</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-48"></a>       <span class="n">title</span> <span class="o">=</span> <span class="s">"Deaths vs Time"</span><span class="p">)</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-49"></a>  <span class="nf">theme_void</span><span class="p">()</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-50"></a>  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">90</span><span class="p">),</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-51"></a>        <span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
-<a name="rest_code_e386a5cac48240e1934ac4c1306d02d5-52"></a>  <span class="nf">ggsave</span><span class="p">(</span><span class="s">"/Users/nvence/prog/COVID-19/data_CDC/bar_chart.png"</span><span class="p">)</span>
+<img alt="/files/Example_Figure.png" src="../files/Example_Figure.png"><pre class="code R"><a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-2"></a><span class="c1">#Example Figure</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-3"></a>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-4"></a><span class="n">rate</span> <span class="o">&lt;-</span> <span class="n">.</span><span class="m">5</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-5"></a><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span><span class="n">decay</span> <span class="o">=</span> <span class="nf">rexp</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="n">rate</span><span class="p">))</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-6"></a>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-7"></a><span class="n">p1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">decay</span><span class="p">))</span> <span class="o">+</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-8"></a>  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="m">0</span><span class="o">:</span><span class="m">8</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-9"></a>  <span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="m">0</span><span class="o">:</span><span class="m">8</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-10"></a>  <span class="nf">geom_function</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">rlang</span><span class="o">::</span><span class="nf">as_function</span><span class="p">(</span><span class="o">~</span> <span class="m">100</span> <span class="o">*</span> <span class="nf">dexp</span><span class="p">(</span><span class="n">.x</span><span class="p">,</span> <span class="n">rate</span><span class="p">)),</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"red"</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-11"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-12"></a>  <span class="nf">theme_bw</span><span class="p">()</span>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-13"></a>
+<a name="rest_code_6fb83691e5d144e88702bd63cb8d0fe2-14"></a><span class="nf">ggsave</span><span class="p">(</span><span class="s">"Example_Figure.png"</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span>
 </pre>
-<div class="admonition attention">
-<p class="admonition-title">Attention!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The <strong>image</strong> directive <em>requires</em> the left-most
 <code>/</code> in its path, while the <strong>include</strong> directive
 <em>can not have</em> the left-most <code>/</code> in the path</p>
@@ -176,10 +142,14 @@ However, a link <code>ln path/to/source.R</code> removes redundancy.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li><a class="tag p-category" href="../categories/icd-death-codes.html" rel="tag">ICD death-codes</a></li>
-            <li><a class="tag p-category" href="../categories/nikola.html" rel="tag">nikola</a></li>
+<li><a class="tag p-category" href="../categories/nikola.html" rel="tag">nikola</a></li>
             <li><a class="tag p-category" href="../categories/r.html" rel="tag">R</a></li>
             <li><a class="tag p-category" href="../categories/rest.html" rel="tag">reST</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="next">
+                <a href="comparing-distributions.html" rel="next" title="Comparing distributions">Next post</a>
+            </li>
         </ul></nav></aside><script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script><script>
                 renderMathInElement(document.body,
                     {

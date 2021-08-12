@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="COVID_bar_chart.R">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COVID_bar_chart.R | Applied Stats</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://nickvence.github.io/listings/COVID_bar_chart.R.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="../posts/index.html" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="../galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="../about.html" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="COVID_bar_chart.R" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href=".">listings</a></li>
+                <li class="breadcrumb-item active">COVID_bar_chart.R</li>
+</ul></nav><h1>COVID_bar_chart.R
+        <small><a href="COVID_bar_chart.R">(Source)</a></small>
+    </h1>
+    <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-1" name="listingscovid_bar_chartr-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-2" name="listingscovid_bar_chartr-2"></a><span class="nf">library</span><span class="p">(</span><span class="n">magrittr</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-3" name="listingscovid_bar_chartr-3"></a><span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-4" name="listingscovid_bar_chartr-4"></a><span class="nf">library</span><span class="p">(</span><span class="n">RColorBrewer</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-5" name="listingscovid_bar_chartr-5"></a><span class="c1">## Import Data</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-6" name="listingscovid_bar_chartr-6"></a><span class="c1">## 2019 - 2020</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-7" name="listingscovid_bar_chartr-7"></a><span class="n">d20a</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">"/Users/nvence/prog/COVID-19/data_CDC/Weekly_Counts_of_Deaths_by_Select_Causes__2019-2020.csv"</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-8" name="listingscovid_bar_chartr-8"></a>  <span class="nf">transmute</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="nf">as_date</span><span class="p">(</span><span class="n">`Week Ending Date`</span><span class="p">),</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-9" name="listingscovid_bar_chartr-9"></a>            <span class="n">covid</span> <span class="o">=</span> <span class="n">`COVID-19 (U071, Underlying Cause of Death)`</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-10" name="listingscovid_bar_chartr-10"></a>            <span class="n">cancer</span> <span class="o">=</span> <span class="n">`Malignant neoplasms (C00-C97)`</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-11" name="listingscovid_bar_chartr-11"></a>            <span class="n">influenza_pneumonia</span> <span class="o">=</span> <span class="n">`Influenza and pneumonia (J09-J18)`</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-12" name="listingscovid_bar_chartr-12"></a>            <span class="n">respiritory_other</span> <span class="o">=</span> <span class="n">`Chronic lower respiratory diseases (J40-J47)`</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-13" name="listingscovid_bar_chartr-13"></a>                                <span class="n">`Other diseases of respiratory system (J00-J06,J30-J39,J67,J70-J98)`</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-14" name="listingscovid_bar_chartr-14"></a>            <span class="n">cardiovascular</span> <span class="o">=</span> <span class="n">`Diseases of heart (I00-I09,I11,I13,I20-I51)`</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-15"><code data-line-number="15"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-15" name="listingscovid_bar_chartr-15"></a>                             <span class="n">`Cerebrovascular diseases (I60-I69)`</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-16"><code data-line-number="16"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-16" name="listingscovid_bar_chartr-16"></a>            <span class="n">other</span> <span class="o">=</span> <span class="n">`Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified (R00-R99)`</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-17"><code data-line-number="17"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-17" name="listingscovid_bar_chartr-17"></a>                    <span class="n">`Nephritis, nephrotic syndrome and nephrosis (N00-N07,N17-N19,N25-N27)`</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-18"><code data-line-number="18"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-18" name="listingscovid_bar_chartr-18"></a>                    <span class="n">`Septicemia (A40-A41)`</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-19"><code data-line-number="19"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-19" name="listingscovid_bar_chartr-19"></a>                    <span class="n">`Alzheimer disease (G30)`</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-20"><code data-line-number="20"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-20" name="listingscovid_bar_chartr-20"></a>                    <span class="n">`Diabetes mellitus (E10-E14)`</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-21"><code data-line-number="21"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-21" name="listingscovid_bar_chartr-21"></a>  <span class="c1">## Change time resolution: month</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-22"><code data-line-number="22"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-22" name="listingscovid_bar_chartr-22"></a>  <span class="nf">mutate</span><span class="p">(</span><span class="n">year</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="nf">year</span><span class="p">(</span><span class="n">date</span><span class="p">)),</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-23"><code data-line-number="23"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-23" name="listingscovid_bar_chartr-23"></a>         <span class="n">month</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="nf">month</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-24"><code data-line-number="24"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-24" name="listingscovid_bar_chartr-24"></a>  <span class="nf">select</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">covid</span><span class="o">:</span><span class="n">other</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-25"><code data-line-number="25"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-25" name="listingscovid_bar_chartr-25"></a>  <span class="nf">group_by</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="n">month</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-26"><code data-line-number="26"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-26" name="listingscovid_bar_chartr-26"></a>  <span class="nf">summarise_all</span><span class="p">(</span><span class="n">sum</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="c1">#sum over weeks</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-27"><code data-line-number="27"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-27" name="listingscovid_bar_chartr-27"></a>  <span class="nf">ungroup</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-28"><code data-line-number="28"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-28" name="listingscovid_bar_chartr-28"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-29"><code data-line-number="29"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-29" name="listingscovid_bar_chartr-29"></a><span class="c1">### FIGURE 1 ###</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-30"><code data-line-number="30"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-30" name="listingscovid_bar_chartr-30"></a><span class="c1">## Format Data</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-31"><code data-line-number="31"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-31" name="listingscovid_bar_chartr-31"></a><span class="n">d20b</span> <span class="o">&lt;-</span> <span class="n">d20a</span> <span class="o">%&gt;%</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-32"><code data-line-number="32"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-32" name="listingscovid_bar_chartr-32"></a>  <span class="nf">pivot_longer</span><span class="p">(</span><span class="n">covid</span><span class="o">:</span><span class="n">other</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-33"><code data-line-number="33"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-33" name="listingscovid_bar_chartr-33"></a>               <span class="n">names_to</span> <span class="o">=</span> <span class="s">"cause"</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-34"><code data-line-number="34"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-34" name="listingscovid_bar_chartr-34"></a>               <span class="n">values_to</span> <span class="o">=</span> <span class="s">"deaths"</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-35"><code data-line-number="35"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-35" name="listingscovid_bar_chartr-35"></a>               <span class="n">names_transform</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-36"><code data-line-number="36"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-36" name="listingscovid_bar_chartr-36"></a>                   <span class="n">cause</span> <span class="o">=</span> <span class="o">~</span> <span class="n">readr</span><span class="o">::</span><span class="nf">parse_factor</span><span class="p">(</span><span class="n">.x</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-37"><code data-line-number="37"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-37" name="listingscovid_bar_chartr-37"></a>                       <span class="n">levels</span> <span class="o">=</span> <span class="nf">rev</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">"cardiovascular"</span><span class="p">,</span> <span class="s">"cancer"</span><span class="p">,</span> <span class="s">"other"</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-38"><code data-line-number="38"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-38" name="listingscovid_bar_chartr-38"></a>                                      <span class="s">"respiritory_other"</span><span class="p">,</span> <span class="s">"influenza_pneumonia"</span><span class="p">,</span> <span class="s">"covid"</span><span class="p">)),</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-39"><code data-line-number="39"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-39" name="listingscovid_bar_chartr-39"></a>                       <span class="n">ordered</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-40"><code data-line-number="40"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-40" name="listingscovid_bar_chartr-40"></a>                 <span class="p">))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-41"><code data-line-number="41"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-41" name="listingscovid_bar_chartr-41"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-42"><code data-line-number="42"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-42" name="listingscovid_bar_chartr-42"></a><span class="c1">## Bar Chart</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-43"><code data-line-number="43"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-43" name="listingscovid_bar_chartr-43"></a><span class="nf">ggplot</span><span class="p">(</span><span class="n">d20b</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">year</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">deaths</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">cause</span><span class="p">))</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-44"><code data-line-number="44"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-44" name="listingscovid_bar_chartr-44"></a>  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">"identity"</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-45"><code data-line-number="45"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-45" name="listingscovid_bar_chartr-45"></a>  <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">month</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">strip.position</span><span class="o">=</span><span class="s">"bottom"</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-46"><code data-line-number="46"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-46" name="listingscovid_bar_chartr-46"></a>  <span class="nf">scale_fill_brewer</span><span class="p">(</span> <span class="n">palette</span> <span class="o">=</span> <span class="s">"Set1"</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="m">-1</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-47"><code data-line-number="47"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-47" name="listingscovid_bar_chartr-47"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">caption</span> <span class="o">=</span> <span class="s">"data.cdc.gov/NCHS/Weekly-Counts-of-Death-by-State-and-Select-Causes/muzy-jte6"</span><span class="p">,</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-48"><code data-line-number="48"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-48" name="listingscovid_bar_chartr-48"></a>       <span class="n">title</span> <span class="o">=</span> <span class="s">"Deaths vs Time"</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-49"><code data-line-number="49"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-49" name="listingscovid_bar_chartr-49"></a>  <span class="nf">theme_void</span><span class="p">()</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-50"><code data-line-number="50"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-50" name="listingscovid_bar_chartr-50"></a>  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">90</span><span class="p">),</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-51"><code data-line-number="51"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-51" name="listingscovid_bar_chartr-51"></a>        <span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingscovid_bar_chartr-52"><code data-line-number="52"></code></a></td>
+<td class="code"><code><a id="listingscovid_bar_chartr-52" name="listingscovid_bar_chartr-52"></a>  <span class="nf">ggsave</span><span class="p">(</span><span class="s">"/Users/nvence/prog/COVID-19/data_CDC/bar_chart.png"</span><span class="p">)</span>
+</code></td>
+</tr>
+</table></div>
+
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

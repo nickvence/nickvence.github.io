@@ -24,37 +24,37 @@ fibrilation (a type of cardiac arrhythmia) is cauterizing (burning) part of the
 heart so that scar tissue will electrically isolate the tissue generating the spurious
 electrical impulse.
 
-Knowing that proton radiation kill cells and creates scar tissue, our research team
-was designing a non-invaisve, proton, radiation treatment. 
+Knowing that proton radiation kills cells and creates scar tissue, our research team
+was designing a non-invasive proton radiation treatment. 
 I joined this project during the dose-finding portion of the study.
-We used a rat to determine the radiation dose needed to scar cardiac tissue.
-The treatment was to target the Sinoatrial node, the heart's spark plug,
-with radiation.  Our hypothesis was that we could detect the development of scar
-tissue in the Sinatrial node through an Electro-Cardiogram (ECG).
+We used a rat model to determine the radiation dose required to scar cardiac tissue.
+The treatment was to target the sinoatrial node, the heart's "spark plug,"
+with radiation.  To detect the development of scar
+tissue in the sinoatrial node we relied on an electro-cardiogram (ECG).
 
 The animal procedure was :
 
 1) sedating the rat,
 2) giving the rat a CT-scan_ (3D x-ray),
-3) planning two-beam proton radiation treatment,
+3) planning a two-beam proton radiation treatment,
 4) administering proton radiation, and
-5) monitoring the heart for signs of scarring. 
+5) monitoring the heart for signs of scarring in the weeks that followed. 
 
 For the first step, `Ying Nie`_, our fearless biologist, placed the conscious rat in an
-anesthesia box before comfortably securing the sedated rat in the half-pipe, anesthesia cradle that
-would carry him for the duration of the experiment (see Fig. 1 upper).  
+anesthesia box before comfortably securing the sedated rat in the half-pipe anesthesia cradle that
+would carry it for the duration of the experiment (see Fig. 1 upper).  
 
-The second step was administering a chest CT-scan_ to our furry rodent; the resulting 3D image
-gives our radiation specialist the information to create a two-beam, radiation, treatment plan.
-For a succesful chest scan, the x-ray radiation must be gated (paused) during breathing to keep 
-the exposure from bluring during chest movement.
-On human subjects a box with reflective dots is placed on their chest and the CT-scanner 
-registers its movement with a video feed. Unfortunately, this setup didn't work, for
+The second step was administering a chest CT-scan_ to the rodent; the resulting 3D image
+gives our radiation specialist the information to create a two-beam radiation treatment plan.
+For a successful chest scan, the x-ray radiation must be gated (paused) during breathing to keep 
+the exposure from blurring during chest movement.
+On human subjects, a box with reflective dots is placed on their chest and the CT-scanner 
+registers its movement with a video feed. Unfortunately, this setup didn't work, because
 rats are too small, their breathing amplitude is too shallow, and were pointing away from the camera.
 
 Our solution was to use a pressure sensor to measure the rat's breathing and artifically
 move the reflective box to interface with the CT scanner's existing video recognition system. 
-The BIOPAC pressure sensor (Fig. 1 lower) output 10 Volt DC analog signal, and
+The BIOPAC pressure sensor (Fig. 1 lower) output a 10 Volt DC analog signal, and
 I programmed an Arduino Uno to convert this to a `pulse width modulation`_ signal driving the
 servo motor which moved the reflective box.  The first video gives an overview, and the second video
 shows it in action. 
@@ -65,10 +65,10 @@ shows it in action.
 
 While the treatment plan (step three) was being created, I measured the spatial offset in the
 gantry [#]_ using proton-sensitive film.  Then we performed step four: fixing the rat on the table,
-dialing in the offset, and administering the proscribed radiation dose.
+dialing in the offset, and administering the prescribed radiation dose.
 
 The final step took place over the following weeks as a cardiologist monitored the rat's ECG
-for aberations that might be caused by scar tissue forming in the heart.
+for aberrations caused by scar tissue forming in the heart.
 
 .. [#] Proton gantry is a large machine designed to move a proton beam around a patient receiving radiation therapy.
 

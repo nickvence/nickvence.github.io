@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pages tagged ggplot | Applied Stats</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://nickvence.github.io/tagged_pages/ggplot.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="../posts/index.html" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="../galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="../about.html" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+
+    <header><h1>Pages tagged ggplot</h1>
+        <div class="metadata">
+            
+
+            
+
+        </div>
+    </header><div class="postindex">
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="../graph01.html" class="u-url">graph01</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Nicholas Vence
+            </span></p>
+            <p class="dateline">
+            <a href="../graph01.html" rel="bookmark">
+            <time class="published dt-published" datetime="2021-07-07T15:28:47-04:00" itemprop="datePublished" title="2021-07-07">2021-07-07</time></a>
+            </p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div class="section" id="probability-distributions">
+<h3>Probability distributions</h3>
+<p>ROUGH DRAFT</p>
+<p>TODO: place equation on chart</p>
+<p>Suppose you have a rare event, e.g. a machine that has a 10% chance of breaking
+each day. The probability that it fails after X days is given by an
+<a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_distribution">exponential distribution</a>.
+This proability density function (pdf) is the proabability per day
+(dark gray).</p>
+<p>$$ f(X) = \lambda e^{-\lambda X} $$</p>
+<p>The probability that it survives X days is given by the <em>cumulative</em>
+probability distribution (gray), which adds up (sums/integrates)
+the probability up to that day, and hence is a monotonically increasing
+function.</p>
+<p>$$ F(X) = \int_0^X f(t) dt = 1 - e^{-\lambda X} $$</p>
+<img alt="/galleries/graph/cumulative_dist.png" src="../galleries/graph/cumulative_dist.png"><pre class="code R"><a name="rest_code_12058cdf5c854fe7a37da449046162b9-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-2"></a>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-3"></a><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">0</span><span class="o">:</span><span class="m">20</span>          <span class="c1">#Domain</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-4"></a><span class="n">dy</span> <span class="o">&lt;-</span> <span class="nf">dgeom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">.</span><span class="m">1</span><span class="p">)</span> <span class="c1">#Probability density</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-5"></a><span class="n">py</span> <span class="o">&lt;-</span> <span class="nf">pgeom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">.</span><span class="m">1</span><span class="p">)</span> <span class="c1">#Cumulative probability distribution</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-6"></a>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-7"></a><span class="nf">tibble</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">py</span><span class="p">)</span> <span class="o">%&gt;%</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-8"></a><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-9"></a>  <span class="nf">geom_col</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">py</span><span class="p">),</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">"grey60"</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-10"></a>  <span class="nf">geom_col</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">dy</span><span class="p">),</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">"grey40"</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-11"></a>  <span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-12"></a>  <span class="nf">geom_hline</span><span class="p">(</span><span class="n">yintercept</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"red"</span><span class="p">,</span> <span class="n">linetype</span> <span class="o">=</span> <span class="s">"dashed"</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-13"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">"Cumulative Probability (and probability density)"</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-14"></a>  <span class="nf">theme</span><span class="p">(</span><span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">))</span> <span class="o">+</span> <span class="c1">#Centering title</span>
+<a name="rest_code_12058cdf5c854fe7a37da449046162b9-15"></a>  <span class="nf">ggsave</span><span class="p">(</span><span class="s">"cumulative_dist.png"</span><span class="p">)</span>
+</pre>
+</div>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="../covid-deaths.html" class="u-url">COVID deaths</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Nicholas Vence
+            </span></p>
+            <p class="dateline">
+            <a href="../covid-deaths.html" rel="bookmark">
+            <time class="published dt-published" datetime="2020-12-10T14:17:18-05:00" itemprop="datePublished" title="2020-12-10">2020-12-10</time></a>
+            </p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>I'm comparing deaths from natural causes (not homocide) between 2020 and 2019. After my interest
+was piqued by a retracted article from John's Hopkins University, I
+went to the <a class="reference external" href="https://data.cdc.gov/NCHS/Weekly-Counts-of-Death-by-State-and-Select-Causes/muzy-jte6">CDC</a> to acquire data. After some tinkering, I
+figured decided to use facets to squeeze two categories (year, month)
+on the x-axis while being able to stack (categorical) diseases on the y-axis.</p>
+<img alt="/files/bar_chart.png" src="../files/bar_chart.png" style="width: 600px;"><img alt="/files/line_chart.png" src="../files/line_chart.png" style="width: 600px;"><p>These were generated by the following code.</p>
+<pre class="code R"><a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-2"></a>
+<a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-3"></a><span class="c1">#Color info:   display.brewer.all()</span>
+<a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-4"></a><span class="c1">## Line Plot: take2</span>
+<a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-5"></a><span class="nf">ggplot</span><span class="p">(</span><span class="n">d20c</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">month</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">deaths</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">cause</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">cause</span><span class="p">))</span> <span class="o">+</span>
+<a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-6"></a>  <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span>
+<a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-7"></a>  <span class="nf">facet_grid</span><span class="p">(</span><span class="n">year</span> <span class="o">~</span> <span class="n">.</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-8"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">caption</span> <span class="o">=</span> <span class="s">"data.cdc.gov/NCHS/Weekly-Counts-of-Death-by-State-and-Select-Causes/muzy-jte6"</span><span class="p">,</span>
+<a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-9"></a>       <span class="n">title</span> <span class="o">=</span> <span class="s">"Deaths vs Time"</span><span class="p">)</span> <span class="o">+</span>
+<a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-10"></a>  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">90</span><span class="p">),</span>
+<a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-11"></a>        <span class="n">plot.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">hjust</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+<a name="rest_code_c724689d7c2b48f4a0e55ba3ccb2cf70-12"></a>  <span class="nf">ggsave</span><span class="p">(</span><span class="s">"/Users/nvence/prog/COVID-19/data_CDC/COVID_bar_chart.png"</span><span class="p">)</span>
+</pre>
+</div>
+    </div>
+    </article>
+</div>
+
+
+
+
+
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script><script>
+                renderMathInElement(document.body,
+                    {
+                        
+delimiters: [
+    {left: "$$", right: "$$", display: true},
+    {left: "\\[", right: "\\]", display: true},
+    {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+    {left: "$", right: "$", display: false},
+    {left: "\\(", right: "\\)", display: false}
+]
+
+                    }
+                );
+            </script><!--End of body content--><footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

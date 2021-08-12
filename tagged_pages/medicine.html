@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pages tagged medicine | Applied Stats</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://nickvence.github.io/tagged_pages/medicine.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="../posts/index.html" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="../galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="../about.html" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+
+    <header><h1>Pages tagged medicine</h1>
+        <div class="metadata">
+            
+
+            
+
+        </div>
+    </header><div class="postindex">
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="../radiosurgery.html" class="u-url">Radiosurgery</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Nicholas Vence
+            </span></p>
+            <p class="dateline">
+            <a href="../radiosurgery.html" rel="bookmark">
+            <time class="published dt-published" datetime="2021-01-06T08:51:02-05:00" itemprop="datePublished" title="2021-01-06">2021-01-06</time></a>
+            </p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div class="section" id="motivation">
+<h3>Motivation</h3>
+<div class="figure align-right" style="width: 350px">
+<img alt="Rat in anesthesia cradle.  Pressure sensor." src="../files/rat.png"><p class="caption"><strong>Fig. 1</strong> (Upper) Rat in anesthesia cradle. (Lower) Pressure sensor and
+Arduino-driven breath amplifier-box.</p>
+</div>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Arrhythmia">Cardiac arrhythmia</a> is a deadly condition in which one's heart beat becomes
+irregular and results in oxygen deprivation.  The current treatment for atrial
+fibrilation (a type of cardiac arrhythmia) is cauterizing (burning) part of the
+heart so that scar tissue will electrically isolate the tissue generating the spurious
+electrical impulse.</p>
+<p>Knowing that proton radiation kills cells and creates scar tissue, our research team
+was designing a non-invasive proton radiation treatment.
+I joined this project during the dose-finding portion of the study.
+We used a rat model to determine the radiation dose required to scar cardiac tissue.
+The treatment was to target the sinoatrial node, the heart's "spark plug,"
+with radiation.  To detect the development of scar
+tissue in the sinoatrial node we relied on an electro-cardiogram (ECG).</p>
+<p>The animal procedure was :</p>
+<ol class="arabic simple">
+<li><p>sedating the rat,</p></li>
+<li><p>giving the rat a <a class="reference external" href="https://en.wikipedia.org/wiki/CT_scan">CT-scan</a> (3D x-ray),</p></li>
+<li><p>planning a two-beam proton radiation treatment,</p></li>
+<li><p>administering proton radiation, and</p></li>
+<li><p>monitoring the heart for signs of scarring in the weeks that followed.</p></li>
+</ol>
+<p>For the first step, <a class="reference external" href="http://www.llu.edu/pages/faculty/directory/faculty.html?eid=1a34670">Ying Nie</a>, our fearless biologist, placed the conscious rat in an
+anesthesia box before comfortably securing the sedated rat in the half-pipe anesthesia cradle that
+would carry it for the duration of the experiment (see Fig. 1 upper).</p>
+<p>The second step was administering a chest <a class="reference external" href="https://en.wikipedia.org/wiki/CT_scan">CT-scan</a> to the rodent; the resulting 3D image
+gives our radiation specialist the information to create a two-beam radiation treatment plan.
+For a successful chest scan, the x-ray radiation must be gated (paused) during breathing to keep
+the exposure from blurring during chest movement.
+On human subjects, a box with reflective dots is placed on their chest and the CT-scanner
+registers its movement with a video feed. Unfortunately, this setup didn't work, because
+rats are too small, their breathing amplitude is too shallow, and were pointing away from the camera.</p>
+<p>Our solution was to use a pressure sensor to measure the rat's breathing and artifically
+move the reflective box to interface with the CT scanner's existing video recognition system.
+The BIOPAC pressure sensor (Fig. 1 lower) output a 10 Volt DC analog signal, and
+I programmed an Arduino Uno to convert this to a <a class="reference external" href="https://en.wikipedia.org/wiki/Pulse-width_modulation">pulse width modulation</a> signal driving the
+servo motor which moved the reflective box.  The first video gives an overview, and the second video
+shows it in action.</p>
+<div class="youtube-video">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CQWvdQLp8hk?rel=0&amp;wmode=transparent" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+</div>
+<div class="youtube-video">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HKLfjAJJxnI?rel=0&amp;wmode=transparent" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+</div>
+<p>While the treatment plan (step three) was being created, I measured the spatial offset in the
+gantry <a class="footnote-reference brackets" href="../radiosurgery.html#id2" id="id1">1</a> using proton-sensitive film.  Then we performed step four: fixing the rat on the table,
+dialing in the offset, and administering the prescribed radiation dose.</p>
+<p>The final step took place over the following weeks as a cardiologist monitored the rat's ECG
+for aberrations caused by scar tissue forming in the heart.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="../radiosurgery.html#id1">1</a></span></dt>
+<dd>
+<p>Proton gantry is a large machine designed to move a proton beam around a patient receiving radiation therapy.</p>
+</dd>
+</dl>
+</div>
+    </div>
+    </article>
+</div>
+
+
+
+
+
+
+
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

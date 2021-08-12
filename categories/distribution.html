@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts about distribution | Applied Stats</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://nickvence.github.io/categories/distribution.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="../posts/index.html" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="../galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="../about.html" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+
+    <header><h1>Posts about distribution</h1>
+        <div class="metadata">
+            
+
+            
+
+        </div>
+    </header><div class="postindex">
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="../posts/comparing-distributions.html" class="u-url">Comparing distributions</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Nicholas Vence
+            </span></p>
+            <p class="dateline">
+            <a href="../posts/comparing-distributions.html" rel="bookmark">
+            <time class="published dt-published" datetime="2021-07-16T12:33:44-04:00" itemprop="datePublished" title="2021-07-16">2021-07-16</time></a>
+            </p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<div class="sidebar">
+<p class="sidebar-title">Diabetes biometrics</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Glycated_hemoglobin">Hemoglobin A1c</a> (HbA1c) is the standard biometric used to quantify the severity
+of diabetes. It measures the fraction of red blood cells that have glucose
+adsorbed. HbA1c can get worse quickly as more suger clings to the
+hemoglobin; however, for HbA1c to get better, one must wait for the
+affected blood cells to die and be replaced by better values.  HbA1c is
+too insensitive for a 12 week intervention.</p>
+<p>Two <a class="reference external" href="https://en.wikipedia.org/wiki/Homeostasis">homeostatic</a> (steady-state internal conditions) alternatives provide
+a more responsive diabetes biometric measuring digestive function as a
+percentage of a healthy adult.
+HOMA-Beta is a homeostatic measure of pancreatic beta cell function, and
+HOMA-IR is a homeostatic measure of insulin resistance calculated
+from fasting blood glucose and either blood insulin or C-peptide.
+These biometrics are much more sensitve than HbA1c for they dynamically track
+pancreatic and liver function.</p>
+<p>We use HOMA-IR as our primary outcome to quantify diabetic severity.</p>
+<p>Systolic and diastolic blood pressure (sBP and dBP) and weight were
+secondary outcomes</p>
+</div>
+<div class="section" id="background">
+<h3>Background</h3>
+<p>I'm involved in a 12 week, randomized control trial determining the
+effectiveness of phone coaching on low-income diabetics.
+One of our physician-advisors had difficulty understanding the following
+figure which visualizes the range or our outcome variables.</p>
+<div class="figure" style="width: 600px">
+<img alt="Range of outcome variables." class="float-left" src="../files/pctChg_Outcomes_IQR.png" style="width: 600px;"><p class="caption"><strong>Figure 1</strong> The median of the percent change (from baseline)
+of the outcome variables is marked by a point while the first
+and third quartiles are visualized by verticle lines.</p>
+</div>
+<p>Our published physician wrote the following upon reviewing our manuscript:</p>
+<div class="admonition admonition-physician-s-critique">
+<p class="admonition-title">Physician's Critique</p>
+<p>[I've] never seen quartiles shown as lines on such a graph before...
+what is the utility? many or most readers will be confused.
+Why show 1st &amp; 3rd quartiles instead of 1st &amp; 4th?
+The p-values do not seem to correspond to the data shown,
+but it is not clear to me whether the error bars are the range for the
+quartiles or not, and what the mean or median for each quartile shown is.</p>
+</div>
+<div class="sidebar">
+<p class="sidebar-title">Randomized Control Trial</p>
+<p>In a randomized control trial, researchers hope their treatment
+(phone coaching in our case) will confer some benefit on the participants.
+This benefit is measured by an outcome variable.
+If one of our outcome variables had a significantly different distribution
+between the control and intervention group, we could claim that since the
+only difference between the two groups was the presence of phone coaching,
+phone coaching must be the cause of this difference.</p>
+<p>When designing a randomized control trial, one must specify the primary
+outcome at the beginning. Since we are interested in helping diabetics,
+we chose an a measure of insulin resistance as our primary outcome.
+However, if phone coaching also lead to weight loss, we would certainly
+report it.</p>
+</div>
+<p>While <em>I</em> think this figure is clear, the customer is always right.
+My job is to communicate these distributions
+our audience (physicians) as clearly as possible.</p>
+<p>The following tour showcases different visualization options to
+understand the pros and cons of comparing the range of several continuous
+variables between groups.</p>
+<table class="m-4 table-striped float-right">
+<caption>
+<strong>Table 1</strong> The following robust statistics do not change
+significantly when outliers are added to a distribution.
+For example, including Bill Gates into a small sample of incomes will
+change the maximum a lot, but it will have a little to no effect on the
+other quartiles.</caption>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 32%">
+<col style="width: 60%">
+</colgroup>
+<tbody>
+<tr>
+<td><p>Q0</p></td>
+<td><p>zeroth quartile</p></td>
+<td><p>0th percentile    (aka minimum value)</p></td>
+</tr>
+<tr>
+<td><p>Q1</p></td>
+<td><p>first quartile</p></td>
+<td><p>25th percentile</p></td>
+</tr>
+<tr>
+<td><p>Q2</p></td>
+<td><p>second quartile</p></td>
+<td><p>50th percentile (aka median)</p></td>
+</tr>
+<tr>
+<td><p>Q3</p></td>
+<td><p>third quartile</p></td>
+<td><p>75th percentile</p></td>
+</tr>
+<tr>
+<td><p>Q4</p></td>
+<td><p>fourth quartile</p></td>
+<td><p>100th percentile (aka maximum value)</p></td>
+</tr>
+<tr>
+<td><p>IQR</p></td>
+<td><p>Interquartile range</p></td>
+<td><p>IQR = Q3 - Q1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-tour">
+<h3>The tour</h3>
+<p>Our primary outcome, ΔHOMA-IR, is a slightly <strong>asymmetrical distribution</strong>
+with <strong>outliers</strong>. The outliers come from patients with advanced-stage
+diabetes who are in various stages of organ failure.
+Unless explicitly stated otherwise, our discussion below
+will refering to the primary outcome: ΔHOMA-IR.</p>
+<div class="section" id="interquartile-range">
+<h4>Interquartile Range</h4>
+<p>Robust statistics (the median and interquartile range) describe the inner
+half of the distribution; the exclusion of the outliers is acceptable because
+we are interested in how normal (not advanced-stage) diabetics are affected.
+Notice the distributions' small dispersion; it is easy to see they are
+different.  We also see a left-skew in the control group.</p>
+<p>It is unfortunate that this set of outcome variables have such a wide range of
+dispersions, for it is difficult to see the narrow range of the weight
+distribution.</p>
+</div>
+<div class="section" id="raw-data-and-outliers">
+<h4>Raw data and outliers</h4>
+<div class="figure align-right" style="width: 600px">
+<img alt="Outcome data: control vs intervention group" src="../files/pctChg_Outcomes_points.png" style="width: 600px;"><p class="caption"><strong>Figure 2</strong> A comparison of the outcome data between the
+control and intervention groups.</p>
+</div>
+<p>When choosing a visualization, there is no substitute for looking at the
+individual data points.  First, I notice the outliers (see Table 2).
+They will inflate the standard deviation and potentially skew
+(add asymmetry to) the distribution.
+Next, I see that the intervention group is clustered by zero,
+while the control group is more spread out. These distributions
+<em>look</em> a little different. The secondary outcome variables
+look the same; that is, they look like side-by-side clouds with
+more or less the same center and width.</p>
+<table class="float-right m-4 table-striped">
+<caption>
+<strong>Table 2</strong> Intereting outliers</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 22%">
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 14%">
+<col style="width: 18%">
+</colgroup>
+<thead><tr>
+<th class="head"><p>ID</p></th>
+<th class="head"><p>Variable</p></th>
+<th class="head"><p>Percent</p></th>
+<th class="head"><p>Diff</p></th>
+<th class="head"><p>Final</p></th>
+<th class="head"><p>Initial</p></th>
+</tr></thead>
+<tbody>
+<tr>
+<td><p>22</p></td>
+<td><p>HOMA-IR</p></td>
+<td><p>+340%</p></td>
+<td><p>+2.27</p></td>
+<td><p>2.95</p></td>
+<td><p>0.68</p></td>
+</tr>
+<tr>
+<td><p>25</p></td>
+<td><p>HOMA-Beta</p></td>
+<td><p>+240%</p></td>
+<td><p>+78</p></td>
+<td><p>111</p></td>
+<td><p>33</p></td>
+</tr>
+<tr>
+<td><p>33</p></td>
+<td><p>HbA1c</p></td>
+<td><p>-66%</p></td>
+<td><p>+4.6</p></td>
+<td><p>7.0</p></td>
+<td><p>11.6</p></td>
+</tr>
+<tr>
+<td><p>97</p></td>
+<td><p>Weight</p></td>
+<td><p>-37%</p></td>
+<td><p>-43 kg</p></td>
+<td><p>70 kg</p></td>
+<td><p>117 kg</p></td>
+</tr>
+<tr>
+<td><p>7</p></td>
+<td><p>Weight</p></td>
+<td><p>-11%</p></td>
+<td><p>-14</p></td>
+<td><p>113</p></td>
+<td><p>127</p></td>
+</tr>
+</tbody>
+</table>
+<p>While looking at the raw data is a great way to compare the two
+distributions, p-values answer the question of statistical
+significance. At the study's outset the researcher determines the
+level of significance (usually 0.05), which is the probability
+that a random selection of points might give a result at least this different
+from the initial distribution. Choosing a smaller signficance level makes
+statistical significance harder to achieve, but squelches statistical flukes
+from falsely claiming to be significant.</p>
+<p>Quantitatively determining if two distributions are different is usually done with
+the independent t-test.  However, in this study we wanted to control
+for potential confounding factors (race, years of diabetes, income,
+food access, and psychological stage of change); we used a multivariate
+linear model and analyzed the p-value of Group (Intervention vs Control).</p>
+<p>Our advisor said, "the p-values don't seem to correspond to the data shown."
+In his defense, he only saw the median and IQR. Let's look at the actual
+data points in Fig. 3 beginning with the distribution with the largest p-value:
+diastolic Blood Presure (dBP). The data look like two identical side-by-side
+clouds; this is different from the distribution in Fig. 1 where each
+distribution appears to have a different skew. This apparent skew
+is an artifact (non-realistic feature) that comes from excluding outliers.
+For HOMA-Beta (p = .8), the difference between Fig. 1 and Fig. 3 is drastic:
+dropping the outliers seems to skew the data in opposite directions. The data
+points in Fig. 3 seem to have a similar center.  Perhaps, HbA1c and Weight
+would have a larger p-value were it not for the single outlier. Finally,
+looking at HOMA-IR, it is easy to see that the intervention
+group has significantly more points clustered around zero. This is really
+exactly what we were hoping: we wanted a statistically significant difference
+in the distribution of our primary outcome. The small p-value (0.027) reflects
+the fact that it is 97% likely that these numbers did not come from the same
+distribution. There is 97% that phone coaching caused the distribution of the
+intervention group's insulin resistance to be different than the distribution
+of the control group's insulin resistance.  Therefore, phone coaching must work
+at lowering diabetic's insulin resistance, which means our study is a success!</p>
+<p>At first glance, each pair of outcomes seems to come from the same
+distribution; however, several outliers (see Table 2) deserve some
+attention. The HOMA variables have the largest dispersion, for
+they depend on several factors: subject health, other body</p>
+</div>
+<div class="section" id="mean-and-standard-deviation">
+<h4>Mean and Standard Deviation</h4>
+<div class="figure align-right" style="width: 600px">
+<img alt="Outcome variables plotted by mean and standard deviation" src="../files/pctChg_Outcomes_sd.png"><p class="caption"><strong>Figure 3</strong> Distribution of the percent change in each primary and
+secondary outcome variable: the mean is marked by a point, and the
+verticle line marks one standard deviation.</p>
+</div>
+<p>The mean and standard deviation (SD) are not robust statistics; that is,
+they are highly influenced by outliers.
+The control group’s mean (Fig 3) is about 2x larger than the median (Fig 1).
+Similarly, the SD of the control group is about 4x larger than of the
+intervention group (Fig 3). When looking at the actual data in Fig 2, however,
+the spread while of the control group, while slightly larger, is primarily
+driven by the outlier: a single data point. Should we trust this point as valid?
+After all, an outlier in the wieght reported 38% weight loss in 15 weeks.
+It is time to get some domain knowledge.</p>
+<p>After showing this outlier to our physician-PI (principle investigator),
+she said an HOMA-IR significantly less than 1.0 (see the first row of Table 2)
+is a sign of organ failure which is common in advanced stages of diabetes.
+Wow.  This is the perfect reason to exclude outliers. People with organ failure
+should not be influencing our distribution!</p>
+<div class="figure align-right" style="width: 600px">
+<img alt="Outcome variables plotted by mean and standard deviation" src="../files/pctChg_Outcomes_violin.png" style="width: 600px;"><p class="caption"><strong>Figure 4</strong> A violin plot of the distribution of the percent change in each
+primary and secondary outcome variable.</p>
+</div>
+<p>Since medical knowledge tells us to exclude outliers from our distrbution,
+the mean and SD are the wrong statistics.</p>
+</div>
+<div class="section" id="violin-plot">
+<h4>Violin Plot</h4>
+<p>The violin plot shows the distribution's density as an horizontal displacement
+from the center.  It usually does an great job comparing distributions; however,
+in this case the are such a range of distributions that the most disperse seem to
+have no width becoming a vertical line, and the most compact are nearly a horizontal
+line.</p>
+</div>
+<div class="section" id="box-plot">
+<h4>Box Plot</h4>
+<div class="figure align-right" style="width: 600px">
+<img alt="Outcome variables plotted by mean and standard deviation" src="../files/pctChg_Outcomes_boxplot.png" style="width: 600px;"><p class="caption"><strong>Figure 5</strong> A box plot of the distribution of the percent change in each
+primary and secondary outcome variable.</p>
+</div>
+<p>While the violin plot is aesthetically appealing, it lacks a certain rigor.
+<a class="reference external" href="https://en.wikipedia.org/wiki/John_Tukey">John Tukey</a> pioneered the box plot which standardizes a distribution using
+quantiles (robust statistics). The box extends from the Q1 up to Q3 and has
+the median marked with a bold line. The height of the box is the interquartile
+range (IQR), and any skew is visible the upper and lower half of the box is a
+differnt size.
+Vertical bars extend up to either the distribution's edge or 1.5 IQR, and any points
+beyond 1.5 IQR are considered outliers and plotted individually.</p>
+<p>Since our study is focusing on the main distribution, we choose to drop the outliers
+as a more succinct visualization that doesn't invite criticism of the outliers.</p>
+<div class="figure align-right" style="width: 600px">
+<img alt="Outcome variables plotted by mean and standard deviation" src="../files/pctChg_Outcomes_boxplot_noOutlier.png" style="width: 600px;"><p class="caption"><strong>Figure 6</strong> A box plot (without outliers) of the distribution of the
+percent change in each primary and secondary outcome variable.</p>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h4>Conclusion</h4>
+<p>One purpose of a visualization is to present a visual aggregate of the data.
+Each of the first three figures has some artifact (an artificial defect that
+doesn't match the original distribution). The artifact from the robust
+statistics (see Fig. 1) is a false skew that occured upon removing the outer
+half of the points from relatively small sample.</p>
+<p>It seems that plotting the raw data would be the most honest, yet overplotting
+hides the true shape of the data.
+Jittering randomly displaces the x coordinate, but the randomness isn't uniform
+and often distorts or hides the distribution.
+Adding a translucence (not done) to each point is a method of revealing
+hidden points.</p>
+<p>The artifact of the mean and SD in a distribution with outliers is a systematic
+bias skewing the mean and inflating the SD.</p>
+<p>Adding a jitter and
+increasing the transluscence of each point will partially restore the
+misperception that occurs when viewing raw data.</p>
+</div>
+</div>
+</div>
+    </div>
+    </article>
+</div>
+
+
+
+
+
+
+
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

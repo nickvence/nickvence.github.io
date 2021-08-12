@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Example_Figure.R">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example_Figure.R | Applied Stats</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://nickvence.github.io/listings/Example_Figure.R.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark
+bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="../">
+
+            <span id="blog-title">Applied Stats</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../research.html" class="nav-link">Research</a>
+                </li>
+<li class="nav-item">
+<a href="../posts/index.html" class="nav-link">Blog</a>
+                </li>
+<li class="nav-item">
+<a href="../galleries/graph/" class="nav-link">Gallery</a>
+                </li>
+<li class="nav-item">
+<a href="../about.html" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../categories/index.html" class="nav-link">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="Example_Figure.R" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href=".">listings</a></li>
+                <li class="breadcrumb-item active">Example_Figure.R</li>
+</ul></nav><h1>Example_Figure.R
+        <small><a href="Example_Figure.R">(Source)</a></small>
+    </h1>
+    <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-1"><code data-line-number=" 1"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-1" name="listingsexample_figurer-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-2"><code data-line-number=" 2"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-2" name="listingsexample_figurer-2"></a><span class="c1">#Example Figure</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-3"><code data-line-number=" 3"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-3" name="listingsexample_figurer-3"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-4"><code data-line-number=" 4"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-4" name="listingsexample_figurer-4"></a><span class="n">rate</span> <span class="o">&lt;-</span> <span class="n">.</span><span class="m">5</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-5"><code data-line-number=" 5"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-5" name="listingsexample_figurer-5"></a><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span><span class="n">decay</span> <span class="o">=</span> <span class="nf">rexp</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="n">rate</span><span class="p">))</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-6"><code data-line-number=" 6"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-6" name="listingsexample_figurer-6"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-7"><code data-line-number=" 7"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-7" name="listingsexample_figurer-7"></a><span class="n">p1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">decay</span><span class="p">))</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-8"><code data-line-number=" 8"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-8" name="listingsexample_figurer-8"></a>  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="m">0</span><span class="o">:</span><span class="m">8</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-9"><code data-line-number=" 9"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-9" name="listingsexample_figurer-9"></a>  <span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="m">0</span><span class="o">:</span><span class="m">8</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-10"><code data-line-number="10"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-10" name="listingsexample_figurer-10"></a>  <span class="nf">geom_function</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">rlang</span><span class="o">::</span><span class="nf">as_function</span><span class="p">(</span><span class="o">~</span> <span class="m">100</span> <span class="o">*</span> <span class="nf">dexp</span><span class="p">(</span><span class="n">.x</span><span class="p">,</span> <span class="n">rate</span><span class="p">)),</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"red"</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-11"><code data-line-number="11"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-11" name="listingsexample_figurer-11"></a>  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span> <span class="o">+</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-12"><code data-line-number="12"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-12" name="listingsexample_figurer-12"></a>  <span class="nf">theme_bw</span><span class="p">()</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-13"><code data-line-number="13"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-13" name="listingsexample_figurer-13"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsexample_figurer-14"><code data-line-number="14"></code></a></td>
+<td class="code"><code><a id="listingsexample_figurer-14" name="listingsexample_figurer-14"></a><span class="nf">ggsave</span><span class="p">(</span><span class="s">"Example_Figure.png"</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span>
+</code></td>
+</tr>
+</table></div>
+
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2021         <a href="mailto:nickvence@gmail.com">Nicholas Vence</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
+</body>
+</html>

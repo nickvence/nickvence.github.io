@@ -48,6 +48,6 @@ ggplot(d20b, aes(x=year, y=deaths, fill = cause)) +
        title = "Deaths vs Time") +
   theme_void() +
   theme(axis.text.x = element_text(angle = 90),
-        plot.title = element_text(hjust = 0.5, size = 18)) +
-  ggsave("/Users/nvence/prog/COVID-19/data_CDC/bar_chart.png")
+        plot.title = element_text(hjust = 0.5, size = 18))
+ggsave("/Users/nvence/prog/COVID-19/data_CDC/COVID_bar_chart.png")
 
